@@ -1,4 +1,10 @@
 body {
   font-family: 'Cinzel Decorative', cursive;
   font-family: 'Martel', serif;
+  padding: 20px 60px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

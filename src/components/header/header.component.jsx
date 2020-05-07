@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/LofranoArtsCustomLogo.png";
+import { ReactComponent as Logo } from "../../assets/LofranoArtsCustomLogo.svg";
 
 import "./header.styles.scss";
 
 const Header = () => (
   <div className="header">
     <Link className="logo-container" to="/">
-      <img className="logo" src={Logo} alt="logo" />
+      <Logo className="logo" />
     </Link>
     <div className="options">
       <Link className="option" to="/shop">
-        Shop
+        SHOP
       </Link>
-      <Link className="option" to="/contact">
-        Cotnact
+      <Link className="option" to="/shop">
+        CONTACT
       </Link>
     </div>
   </div>

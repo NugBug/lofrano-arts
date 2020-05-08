@@ -1,21 +1,21 @@
 import React from "react";
 import CollectionPreview from "../../components/collection-preview/collectoin-preview.component"
 
-import SHOP_DATA from "./shop.data.js";
+import GALLERY_DATA from "./gallery.data.js";
 
-class ShopPage extends React.Component {
+class GalleryPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      collections: SHOP_DATA,
+      collections: GALLERY_DATA,
     };
   }
 
   render() {
     const { collections } = this.state;
     return (
-      <div className="shop-page">
+      <div className="gallery-page">
       {
         collections.map(({ id, ...otherCollectionProps }) => (
           <CollectionPreview key={id} {...otherCollectionProps} />
@@ -26,4 +26,4 @@ class ShopPage extends React.Component {
   }
 }
 
-export default ShopPage;
+export default GalleryPage;

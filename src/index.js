@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL || "lofrano-arts"}>
     <App />
   </BrowserRouter>,
   document.getElementById("root")

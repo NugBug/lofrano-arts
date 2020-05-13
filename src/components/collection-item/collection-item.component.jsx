@@ -7,6 +7,7 @@ import "./collection-item.stylse.scss";
 
 const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl, forSale } = item;
+  
   return (
     <div className={`${forSale ? "for-sale" : ""} collection-item`}>
       <div

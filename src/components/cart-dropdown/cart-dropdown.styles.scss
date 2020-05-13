@@ -14,10 +14,21 @@
   z-index: 5;
 
   .cart-items {
-    height: 240px;
+    height: 275px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width:10px; // manage scrollbar width here
+    }
+    &::-webkit-scrollbar * {
+      background:transparent; // manage scrollbar background color here
+    }
+    &::-webkit-scrollbar-thumb {
+      background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
+    }
   }
 
   button {

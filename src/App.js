@@ -9,6 +9,7 @@ import GalleryPage from "./pages/gallery/gallery.component.jsx";
 import Header from "./components/header/header.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.components copy.jsx";
 import Hero from "./components/hero/hero.component.jsx";
+import CheckoutPage from "./pages/checkout/checkout.component.jsx";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
 
 import "./App.css";
@@ -46,7 +47,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Hero} />
           <Route exact path="/homepage" component={HomePage} />
-          <Route exact path="/gallery" component={GalleryPage} />
+          <Route path="/gallery" component={GalleryPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
             path="/signin"

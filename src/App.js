@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { setCurrentUser } from "./redux/user/user.actions.js";
@@ -64,7 +64,11 @@ class App extends React.Component {
             />
           </Switch>
         </div>
-        <Footer />
+        {
+          this.props.location.pathname !== "/" ? 
+        <Footer /> :
+        ""
+        }
       </div>
     );
   }
@@ -78,4 +82,4 @@ const mapDispatchToProps = {
   setCurrentUser: (user) => setCurrentUser(user),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

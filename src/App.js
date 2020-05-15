@@ -7,6 +7,7 @@ import { selectCurrentUser } from "./redux/user/user.selectors.js";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import GalleryPage from "./pages/gallery/gallery.component.jsx";
 import Header from "./components/header/header.component.jsx";
+import Footer from "./components/footer/footer.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.components copy.jsx";
 import Hero from "./components/hero/hero.component.jsx";
 import CheckoutPage from "./pages/checkout/checkout.component.jsx";
@@ -42,25 +43,28 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Hero} />
-          <Route exact path="/homepage" component={HomePage} />
-          <Route path="/gallery" component={GalleryPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/homepage" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-        </Switch>
+      <div className="page-container">
+        <div className="content-wrap">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Hero} />
+            <Route exact path="/homepage" component={HomePage} />
+            <Route path="/gallery" component={GalleryPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to="/homepage" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+          </Switch>
+        </div>
+        <Footer />
       </div>
     );
   }

@@ -1,8 +1,8 @@
-const SHOP_DATA = [
+const GALLERY_DATA = [
   {
     id: 1,
     title: 'Sculptures',
-    routeName: 'hats',
+    routeName: 'sculptures',
     items: [
       {
         id: 1,
@@ -72,7 +72,7 @@ const SHOP_DATA = [
   {
     id: 2,
     title: 'Photography',
-    routeName: 'sneakers',
+    routeName: 'photography',
     items: [
       {
         id: 10,
@@ -135,7 +135,7 @@ const SHOP_DATA = [
   {
     id: 3,
     title: 'Paintings',
-    routeName: 'jackets',
+    routeName: 'paintings',
     items: [
       {
         id: 18,
@@ -177,7 +177,7 @@ const SHOP_DATA = [
   {
     id: 4,
     title: 'Sketches',
-    routeName: 'womens',
+    routeName: 'sketches',
     items: [
       {
         id: 23,
@@ -233,7 +233,7 @@ const SHOP_DATA = [
   {
     id: 5,
     title: 'Prints',
-    routeName: 'mens',
+    routeName: 'prints',
     items: [
       {
         id: 30,
@@ -281,4 +281,4 @@ const SHOP_DATA = [
   }
 ]
 
-export default SHOP_DATA;
+export default GALLERY_DATA;

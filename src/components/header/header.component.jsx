@@ -17,11 +17,14 @@ const Header = ({ currentUser, hidden }) => (
       <Logo className="logo" />
     </Link>
     <div className="options">
+      <Link className="option" to="/homepage">
+        HOME
+      </Link>
       <Link className="option" to="/gallery">
         GALLERY
       </Link>
-      <Link className="option" to="/contact">
-        CONTACT
+      <Link className="option" to="/about">
+        ABOUT
       </Link>
       {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>

@@ -4,7 +4,7 @@ import "./footer.styles.scss";
 
 const Footer = () => (
   <div className="footer">
-    <h2>This is our footer</h2>
+    <h2 className="footer-text">This is our footer</h2>
   </div>
 );
 

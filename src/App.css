@@ -1,4 +1,5 @@
 body {
+  overflow-x: hidden;
   font-family: 'Cinzel Decorative', cursive;
   font-family: 'Martel', serif;
   padding: 0px 60px;
@@ -21,4 +22,11 @@ a {
 
 .content-wrap{
   flex: 1;
+}
+
+.footer-container {
+  display: absolute;
+  height: 100px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }

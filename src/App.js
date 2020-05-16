@@ -64,11 +64,13 @@ class App extends React.Component {
             />
           </Switch>
         </div>
-        {
-          this.props.location.pathname !== "/" ? 
-        <Footer /> :
-        ""
-        }
+        <div className="footer-container">
+          {
+            this.props.location.pathname !== "/" ? 
+          <Footer /> :
+          ""
+          }
+        </div>
       </div>
     );
   }

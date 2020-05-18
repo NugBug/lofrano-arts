@@ -1,5 +1,5 @@
-const GALLERY_DATA = [
-  {
+const GALLERY_DATA = {
+  sculptures: {
     id: 1,
     title: 'Sculptures',
     routeName: 'sculptures',
@@ -69,7 +69,7 @@ const GALLERY_DATA = [
       }
     ]
   },
-  {
+  photography: {
     id: 2,
     title: 'Photography',
     routeName: 'photography',
@@ -132,7 +132,7 @@ const GALLERY_DATA = [
       }
     ]
   },
-  {
+  paintings: {
     id: 3,
     title: 'Paintings',
     routeName: 'paintings',
@@ -174,7 +174,7 @@ const GALLERY_DATA = [
       }
     ]
   },
-  {
+  sketches: {
     id: 4,
     title: 'Sketches',
     routeName: 'sketches',
@@ -230,7 +230,7 @@ const GALLERY_DATA = [
       }
     ]
   },
-  {
+  prints: {
     id: 5,
     title: 'Prints',
     routeName: 'prints',
@@ -279,6 +279,6 @@ const GALLERY_DATA = [
       }
     ]
   }
-]
+}
 
 export default GALLERY_DATA;

@@ -50,7 +50,8 @@ class SignUp extends React.Component {
         confirmPassword: "",
       });
     } catch (error) {
-      console.error(error);
+      alert("The email address is already in use");
+      window.location.reload(false);
     }
   };
 

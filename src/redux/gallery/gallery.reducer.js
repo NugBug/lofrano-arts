@@ -1,11 +1,16 @@
-import GALLERY_DATA from "./gallery.data";
+import ShopActionTypes from "./shops.types.js";
 
 const INITIAL_STATE = {
-  collections: GALLERY_DATA
+  collections: null,
 };
 
 const galleryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ShopActionTypes.UPDATE_COLLECTIONS:
+      return {
+        ...state,
+        collections: action.payload,
+      };
     default:
       return state;
   }

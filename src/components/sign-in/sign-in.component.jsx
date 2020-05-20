@@ -1,6 +1,7 @@
 import React from "react";
 import FormInput from "../form-input/form-input.component.jsx";
 import CustomButton from "../custom-button/custom-button.component.jsx";
+import Spinner from "../spinner/spinner.component.jsx";
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils.js";
 
@@ -13,10 +14,12 @@ class SignIn extends React.Component {
     this.state = {
       email: "",
       password: "",
+      isLoading: false,
     };
   }
 
   handleSubmit = async (event) => {
+    this.setState({ isLoading: true });
     event.preventDefault();
 
     const { email, password } = this.state;
@@ -38,10 +41,21 @@ class SignIn extends React.Component {
   };
 
   render() {
+    let loading;
+    if (this.state.isLoading) {
+      loading = <Spinner />;
+    } else {
+      loading = null;
+    }
+
     return (
       <div className="sign-in">
+        {loading}
         <h2 className="title">I already have an account</h2>
-        <span>Sign in with your email and password or Google account to make purchases</span>
+        <span>
+          Sign in with your email and password or Google account to make
+          purchases
+        </span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput
@@ -62,7 +76,11 @@ class SignIn extends React.Component {
           />
           <div className="buttons">
             <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              type="button"
+              onClick={signInWithGoogle}
+              isGoogleSignIn
+            >
               Sign in with Google
             </CustomButton>
           </div>

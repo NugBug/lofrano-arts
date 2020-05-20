@@ -1,8 +1,8 @@
-// CSS is now writtena and importred from homepage.styles.jsx
+import styled from "styled-components";
 
-.homepage {
+export const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 80px 80px;
-}
+`

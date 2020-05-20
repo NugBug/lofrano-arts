@@ -11,7 +11,10 @@ import Footer from "./components/footer/footer.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.components copy.jsx";
 import Hero from "./components/hero/hero.component.jsx";
 import CheckoutPage from "./pages/checkout/checkout.component.jsx";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
+import {
+  auth,
+  createUserProfileDocument,
+} from "./firebase/firebase.utils.js";
 
 import "./App.css";
 
@@ -34,6 +37,16 @@ class App extends React.Component {
       }
 
       setCurrentUser(userAuth);
+
+      // This code will add new digital art collection data upon application mount
+      // Be sure to map state 'collectionsArray: selectCollectionsForPreview' to props and pass as prop
+      // Import 'addCollectionAndDocuments from firebase.utils.js
+      // Imprt selectCollectionsForPreview from gallery redux gallery.selector.js
+      //
+      // addCollecitonAndDocuments(
+      //   "collections",
+      //   collectionsArray.map(({ title, items }) => ({ title, items }))
+      // );
     });
   }
 
@@ -65,11 +78,7 @@ class App extends React.Component {
           </Switch>
         </div>
         <div className="footer-container">
-          {
-            this.props.location.pathname !== "/" ? 
-          <Footer /> :
-          ""
-          }
+          {this.props.location.pathname !== "/" ? <Footer /> : ""}
         </div>
       </div>
     );
@@ -78,6 +87,7 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  // collectionsArray: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = {

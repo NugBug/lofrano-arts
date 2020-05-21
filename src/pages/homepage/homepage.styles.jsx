@@ -7,6 +7,6 @@ export const HomePageContainer = styled.div`
   padding: 100px 0px;
 
   @media screen and (max-width: 800px) {
-      padding: 5px;
+      padding-top: 50px;
     }
 `

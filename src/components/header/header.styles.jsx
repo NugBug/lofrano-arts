@@ -28,8 +28,8 @@ export const LogoContainer = styled(Link)`
       height: 30px;
       width: 30px;
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 15px;
+      left: 15px;
     }
 `;
 
@@ -41,7 +41,7 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
 
   @media screen and (max-width: 800px) {
-      justify-content: center;
+      justify-content: space-evenly;
     }
 `;
 

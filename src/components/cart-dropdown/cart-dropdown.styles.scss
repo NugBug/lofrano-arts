@@ -13,6 +13,11 @@
   right: 70px;
   z-index: 5;
 
+  @media screen and (max-width: 800px) {
+    top: 45px;
+    right: 18px;
+  }
+
   .empty-message {
     font-size: 18px;
     margin: 100px auto;

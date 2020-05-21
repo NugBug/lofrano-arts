@@ -22,6 +22,14 @@
       &:last-child {
         width: 10%;
       }
+
+      @media screen and (max-width: 800px) {
+        font-size: 10px;
+
+        &:last-child {
+          width: unset;
+        }
+      }
     }
   }
 
@@ -29,6 +37,10 @@
     margin-top: 30px;
     margin-left: auto;
     font-size: 30px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 20px;
+    }
   }
 
   .button {
@@ -41,5 +53,14 @@
     margin-top: 40px;
     font-size: 15px;
     color: red;
+  
+    @media screen and (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 0;
+    width: 100%;
   }
 }

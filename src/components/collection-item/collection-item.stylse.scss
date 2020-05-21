@@ -20,6 +20,14 @@
     position: absolute;
     top: 250px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+      opacity: 0.7;
+      min-width: unset;
+      padding: 0 10px;
+      font-size: 12px;
+    }
   }
 
   &.for-sale:hover {
@@ -43,10 +51,32 @@
     .name {
       width: 90%;
       margin-bottom: 15px;
+
+      @media screen and (max-width: 800px) {
+        font-size: 14px;
+      }
     }
 
     .price {
       width: 10%;
+
+      @media screen and (max-width: 800px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+
+      &.for-sale:hover {
+      .image {
+        opacity: unset;
+      }
+
+      .custom-button {
+        opacity: unset;
+      }
     }
   }
 }

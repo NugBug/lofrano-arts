@@ -16,7 +16,7 @@ import {
   createUserProfileDocument,
 } from "./firebase/firebase.utils.js";
 
-import "./App.css";
+import { GlobalStyles } from "./global.styles";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -59,6 +59,7 @@ class App extends React.Component {
       <div className="page-container">
         <div className="content-wrap">
           <Header />
+          <GlobalStyles />
           <Switch>
             <Route exact path="/" component={Hero} />
             <Route exact path="/homepage" component={HomePage} />

@@ -6,4 +6,18 @@
   .title {
     margin: 10px 0;
   }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
 }

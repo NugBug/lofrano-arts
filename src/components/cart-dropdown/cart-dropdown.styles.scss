@@ -29,7 +29,6 @@
     flex-direction: column;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
 
     &::-webkit-scrollbar {
       width:10px; // manage scrollbar width here

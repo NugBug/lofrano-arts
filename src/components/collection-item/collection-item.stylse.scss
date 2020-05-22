@@ -25,7 +25,6 @@
   &.for-sale {
     .custom-button {
       @media screen and (max-width: 1200px) {
-        display: block;
         opacity: 0.7;
         min-width: unset;
         padding: 0 10px;

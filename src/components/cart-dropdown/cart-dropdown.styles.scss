@@ -24,21 +24,23 @@
   }
 
   .cart-items {
-    height: 275px;
-    display: flex;
-    flex-direction: column;
+    // height: 350px;
+    // display: flex;
+    // flex-direction: column;
+    margin-bottom: 10px;
     overflow-y: scroll;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 
-    // &::-webkit-scrollbar {
-    //   width:10px; // manage scrollbar width here
-    // }
-    // &::-webkit-scrollbar * {
-    //   background:transparent; // manage scrollbar background color here
-    // }
-    // &::-webkit-scrollbar-thumb {
-    //   background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
-    // }
+    &::-webkit-scrollbar {
+      width:10px; // manage scrollbar width here
+    }
+    &::-webkit-scrollbar * {
+      background:transparent; // manage scrollbar background color here
+    }
+    &::-webkit-scrollbar-thumb {
+      background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
+    }
   }
 
   button {

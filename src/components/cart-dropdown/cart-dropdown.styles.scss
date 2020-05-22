@@ -29,6 +29,8 @@
     flex-direction: column;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -o-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
       width:10px; // manage scrollbar width here
@@ -37,6 +39,24 @@
       background:transparent; // manage scrollbar background color here
     }
     &::-webkit-scrollbar-thumb {
+      background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
+    }
+    &::-moz-scrollbar {
+      width:10px; // manage scrollbar width here
+    }
+    &::-moz-scrollbar * {
+      background:transparent; // manage scrollbar background color here
+    }
+    &::-moz-scrollbar-thumb {
+      background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
+    }
+    &::-o-scrollbar {
+      width:10px; // manage scrollbar width here
+    }
+    &::-o-scrollbar * {
+      background:transparent; // manage scrollbar background color here
+    }
+    &::-o-scrollbar-thumb {
       background:rgba(41, 41, 41, 0.1) !important; // manage scrollbar thumb background color here
     }
   }

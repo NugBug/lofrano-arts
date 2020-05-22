@@ -20,21 +20,25 @@
     position: absolute;
     top: 250px;
     display: none;
+  }
 
-    @media screen and (max-width: 1200px) {
-      display: block;
-      opacity: 0.7;
-      min-width: unset;
-      padding: 0 10px;
-      font-size: 15px;
-    }
+  &.for-sale {
+    .custom-button {
+      @media screen and (max-width: 1200px) {
+        display: block;
+        opacity: 0.7;
+        min-width: unset;
+        padding: 0 10px;
+        font-size: 15px;
+      }
 
-    @media screen and (max-width: 800px) {
-      display: block;
-      opacity: 0.7;
-      min-width: unset;
-      padding: 0 10px;
-      font-size: 12px;
+      @media screen and (max-width: 800px) {
+        display: block;
+        opacity: 0.7;
+        min-width: unset;
+        padding: 0 10px;
+        font-size: 12px;
+      }
     }
   }
 
@@ -45,7 +49,7 @@
 
     .custom-button {
       opacity: 0.85;
-      display: flex;
+      display: block;
     }
   }
 
@@ -85,7 +89,7 @@
   @media screen and (max-width: 800px) {
     width: 40vw;
 
-      &.for-sale:hover {
+    &.for-sale:hover {
       .image {
         opacity: unset;
       }

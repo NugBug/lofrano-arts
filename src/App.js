@@ -78,7 +78,7 @@ class App extends React.Component {
             />
           </Switch>
         </div>
-        <div className="footer-container">
+        <div className={this.props.location.pathname !== "/" ? "footer-container" : ""}>
           {this.props.location.pathname !== "/" ? <Footer /> : ""}
         </div>
       </div>

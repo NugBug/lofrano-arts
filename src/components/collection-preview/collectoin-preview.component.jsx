@@ -10,11 +10,18 @@ const CollectoinPreview = ({ title, items }) => (
       <Link to={`gallery/${title.toLowerCase()}`}>{title.toUpperCase()}</Link>
     </h1>
     <div className="preview">
-      {items
+      {window.innerWidth > 1200 || window.innerWidth <=800 ? 
+        items
         .filter((item, idx) => idx < 4)
         .map((item) => (
           <CollectionItem key={item.id} item={item} />
-        ))}
+        )) :
+        items
+        .filter((item, idx) => idx < 3)
+        .map((item) => (
+          <CollectionItem key={item.id} item={item} />
+        ))
+        }
     </div>
   </div>
 );

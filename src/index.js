@@ -7,8 +7,6 @@ import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component.jsx"
 import App from "./App";
 import { store, persistor } from "./redux/store.js";
 
-import "./index.css";
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

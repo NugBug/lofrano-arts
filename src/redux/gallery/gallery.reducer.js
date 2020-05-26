@@ -1,4 +1,4 @@
-import ShopActionTypes from "./shops.types.js";
+import GalleryActionTypes from "./gallery.types.js";
 
 const INITIAL_STATE = {
   collections: null,
@@ -8,18 +8,18 @@ const INITIAL_STATE = {
 
 const galleryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ShopActionTypes.FETCH_COLLECTIONS_START:
+    case GalleryActionTypes.FETCH_COLLECTIONS_START:
       return {
         ...state,
         isFetching: true,
       };
-    case ShopActionTypes.FETCH_COLLECTIONS_SUCCESS:
+    case GalleryActionTypes.FETCH_COLLECTIONS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         collections: action.payload,
       };
-    case ShopActionTypes.FETCH_COLLECTIONS_FAILURE:
+    case GalleryActionTypes.FETCH_COLLECTIONS_FAILURE:
       return {
         ...state,
         isFetching: false,

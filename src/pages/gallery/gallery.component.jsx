@@ -8,7 +8,7 @@ import CollectionPageContainer from "../collection/collection.container.jsx";
 const GalleryPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
     fetchCollectionsStart();
-  })
+  }, [fetchCollectionsStart]);
 
   return (
     <div className="gallery-page">
@@ -23,7 +23,7 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
       />
     </div>
   );
-}
+};
 
 const mapDispatchToProps = {
   fetchCollectionsStart: () => fetchCollectionsStart(),

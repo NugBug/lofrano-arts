@@ -48,6 +48,8 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  width: 80px;
+  text-align: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
 
   &:hover {
@@ -57,5 +59,6 @@ export const OptionLink = styled(Link)`
   @media screen and (max-width: 800px) {
       font-size: 12px;
       padding: 10px;
+      width: unset;
     }
 `;

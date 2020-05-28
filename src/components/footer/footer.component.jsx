@@ -5,7 +5,7 @@ import "./footer.styles.scss";
 
 const Footer = () => (
   <div className="footer">
-    <div className="footer-left footer-text">
+    <div className="footer-top">
       <a href="https://www.instagram.com/jloafrano/" target="blank">
         <img
           className="social-media-logo"
@@ -13,12 +13,10 @@ const Footer = () => (
           alt="instagram-account"
         ></img>
       </a>
-    </div>
-    <div className="footer-right footer-text">
       <p>Terms and Privacy</p>
       <p>Contact</p>
     </div>
-    <div className="footer-bottom footer-text">
+    <div className="footer-bottom">
       <p>Copyright © Lofrano Arts 2020</p>
     </div>
   </div>

@@ -6,3 +6,13 @@ export const selectCurrentUser = createSelector(
   [selectUser],
   (user) => user.currentUser
 );
+
+export const selectSignInError = createSelector(
+  [selectUser], 
+  (user) => user.error
+);
+
+export const selectIsUserFetching = createSelector(
+  [selectUser],
+  (user) => user.isFetching
+);

@@ -1,5 +1,9 @@
 import UserActionTypes from "./user.types.js";
 
+export const resetForm = () => ({
+  type: UserActionTypes.RESET_FORM,
+});
+
 export const googleSignInStart = () => ({
   type: UserActionTypes.GOOGLE_SIGN_IN_START,
 });

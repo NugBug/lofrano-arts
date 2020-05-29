@@ -56,12 +56,16 @@ export const OptionLink = styled(NavLink)`
   flex-direction: column;
   border-radius: 3px;
   -webkit-backface-visibility:  hidden;
-  -webkit-tap-highlight-color:  #677580;
+  -webkit-tap-highlight-color:  transparent;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background: #83929e;
     }
+  }
+
+  &:active {
+    background: #677580;
   }
   
   &.selected {

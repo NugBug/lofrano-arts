@@ -11,27 +11,23 @@
   .items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 15px;
 
     & .collection-item {
       margin-bottom: 30px;
+      justify-self: center;
     }
 
     @media screen and (max-width: 1200px) {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 15px;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     
     @media screen and (max-width: 800px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 15px;
+      grid-gap: unset;
     }
-  }
-
-  @media screen and (max-width: 1200px) {
-    align-items: center;
   }
 }
 
@@ -43,5 +39,8 @@
 
   .back-arrow {
     font-size: 25px;
+    @media screen and (max-width: 1200px) {
+      font-size: 20px;
+    }
   }
 }

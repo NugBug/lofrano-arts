@@ -17,7 +17,7 @@ const CollectionPage = ({ collection }) => {
         }
       </div>
       <div className="back-button">
-        <Link className="back-arrow" to="/gallery">&#10094;&nbsp;Return</Link>
+        <Link className="back-arrow" to="/gallery">&#10094;&nbsp;Back</Link>
       </div>
     </div>
   );

@@ -64,8 +64,8 @@ export const OptionLink = styled(NavLink)`
     }
   }
 
-  &:active {
-    background: #677580;
+  &:active, &:hover {
+    background: #83929e;
   }
   
   &.selected {

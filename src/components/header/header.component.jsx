@@ -15,6 +15,11 @@ import {
   OptionLink,
 } from "./header.styles.jsx";
 
+const signOut = () => {
+  signOutStart();
+  document.getElementById("signOut").removeAttribute()
+}
+
 const Header = ({ currentUser, hidden, signOutStart }) => (
   <HeaderContainer>
     <LogoContainer to="/homepage">
@@ -25,7 +30,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
       <OptionLink to="/gallery" activeClassName="selected">GALLERY</OptionLink>
       <OptionLink to="/about" activeClassName="selected">ABOUT</OptionLink>
       {currentUser ? (
-        <OptionLink to="/" onClick={signOutStart}>
+        <OptionLink id="signOut" to="/" onClick={signOutStart}>
           SIGN OUT
         </OptionLink>
       ) : (

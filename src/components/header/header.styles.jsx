@@ -56,10 +56,13 @@ export const OptionLink = styled(NavLink)`
   align-items: center;
   flex-direction: column;
 
-  &:hover {
-    background: #83929e;
-    border-radius: 2px;
+  @media (hover: hover) {
+    &:hover {
+      background: #83929e;
+      border-radius: 2px;
+    }
   }
+
   
   &.selected {
     background: #677580;

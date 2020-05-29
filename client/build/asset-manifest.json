@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/lofrano-arts/static/css/main.f19585f8.chunk.css",
+    "main.js": "/lofrano-arts/static/js/main.e87d6d0e.chunk.js",
+    "main.js.map": "/lofrano-arts/static/js/main.e87d6d0e.chunk.js.map",
+    "runtime-main.js": "/lofrano-arts/static/js/runtime-main.5fec377e.js",
+    "runtime-main.js.map": "/lofrano-arts/static/js/runtime-main.5fec377e.js.map",
+    "static/js/2.0743b84f.chunk.js": "/lofrano-arts/static/js/2.0743b84f.chunk.js",
+    "static/js/2.0743b84f.chunk.js.map": "/lofrano-arts/static/js/2.0743b84f.chunk.js.map",
+    "index.html": "/lofrano-arts/index.html",
+    "precache-manifest.f6224111c67237606415288ea30a4cff.js": "/lofrano-arts/precache-manifest.f6224111c67237606415288ea30a4cff.js",
+    "service-worker.js": "/lofrano-arts/service-worker.js",
+    "static/css/main.f19585f8.chunk.css.map": "/lofrano-arts/static/css/main.f19585f8.chunk.css.map",
+    "static/js/2.0743b84f.chunk.js.LICENSE.txt": "/lofrano-arts/static/js/2.0743b84f.chunk.js.LICENSE.txt",
+    "static/media/LofranoArtsCustomLogo.4a9116a2.svg": "/lofrano-arts/static/media/LofranoArtsCustomLogo.4a9116a2.svg",
+    "static/media/LofranoArtsLogoOnly.svg": "/lofrano-arts/static/media/LofranoArtsLogoOnly.5a1da63d.svg",
+    "static/media/shopping-bag.30f07071.svg": "/lofrano-arts/static/media/shopping-bag.30f07071.svg",
+    "static/media/studio.drawing.4a4d99f4.jpg": "/lofrano-arts/static/media/studio.drawing.4a4d99f4.jpg",
+    "static/media/studio.sculpture.6aead9df.jpg": "/lofrano-arts/static/media/studio.sculpture.6aead9df.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fec377e.js",
+    "static/js/2.0743b84f.chunk.js",
+    "static/css/main.f19585f8.chunk.css",
+    "static/js/main.e87d6d0e.chunk.js"
+  ]
+}

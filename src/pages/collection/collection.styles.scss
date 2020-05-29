@@ -34,3 +34,14 @@
     align-items: center;
   }
 }
+
+.back-button {
+  padding-top: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  .back-arrow {
+    font-size: 25px;
+  }
+}

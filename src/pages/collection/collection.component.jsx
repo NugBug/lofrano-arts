@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import CollectionItem from "../../components/collection-item/collection-item.component.jsx";
 import { selectCollection } from "../../redux/gallery/gallery.selectors.js";
+import { Link } from "react-router-dom";
 
 import "./collection.styles.scss";
 
@@ -14,6 +15,9 @@ const CollectionPage = ({ collection }) => {
         {
           items.map(item => <CollectionItem key={item.id} item={item} />)
         }
+      </div>
+      <div className="back-button">
+        <Link className="back-arrow" to="/gallery">&#10094;&nbsp;Return</Link>
       </div>
     </div>
   );

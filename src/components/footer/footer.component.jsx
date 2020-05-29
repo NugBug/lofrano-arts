@@ -14,7 +14,7 @@ const Footer = () => (
         ></img>
       </a>
       <p>Terms and Privacy</p>
-      <p>Contact</p>
+      <p><a href="mailto:lofranoart@gmail.com"  rel="noopener noreferrer">Contact</a></p>
     </div>
     <div className="footer-bottom">
       <p>Copyright © Lofrano Arts 2020</p>

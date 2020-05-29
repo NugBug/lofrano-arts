@@ -24,11 +24,11 @@
   justify-content: space-around;
   text-align: center;
   font-size: small;
-  color: white;
   padding: 5px 0;
 
   &> p, a {
     margin: 5px;
+    color: white;
   }
 
   &> * {

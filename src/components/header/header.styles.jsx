@@ -55,6 +55,8 @@ export const OptionLink = styled(NavLink)`
   align-items: center;
   flex-direction: column;
   border-radius: 3px;
+  -webkit-backface-visibility:  hidden;
+  -webkit-tap-highlight-color:  transparent;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

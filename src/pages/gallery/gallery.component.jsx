@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../../redux/gallery/gallery.actions";
-import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container.jsx";
 import CollectionPageContainer from "../collection/collection.container.jsx";
+import Directory from "../../components/directory/directory.component.jsx";
 
 const GalleryPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
@@ -15,7 +15,7 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
       <Route
         exact
         path={`${match.path}`}
-        component={CollectionsOverviewContainer}
+        component={Directory}
       />
       <Route
         path={`${match.path}/:collectionId`}

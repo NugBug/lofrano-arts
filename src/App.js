@@ -7,6 +7,7 @@ import { checkUserSession } from "./redux/user/user.actions.js";
 import { hideCart } from "./redux/cart/cart.actions.js";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import GalleryPage from "./pages/gallery/gallery.component.jsx";
+import AboutPage from "./pages/about/about.component.jsx";
 import Header from "./components/header/header.component.jsx";
 import Footer from "./components/footer/footer.component.jsx";
 import SignInAndSignUpPageContainer from "./pages/sign-in-and-sign-up/sign-in-and-sign-out.container";
@@ -43,6 +44,7 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
           <Route exact path="/" component={Hero} />
           <Route exact path="/homepage" component={HomePage} />
           <Route path="/gallery" component={GalleryPage} />
+          <Route path="/about" component={AboutPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact

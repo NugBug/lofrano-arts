@@ -50,29 +50,21 @@ export const OptionLink = styled(NavLink)`
   padding: 10px 15px;
   cursor: pointer;
   width: 80px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 3px;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background: #83929e;
-      border-radius: 2px;
     }
-  }
-
-  &:active {
-    background: #677580;
-    color: #f0f0f0;
-    border-radius: 2px;
   }
   
   &.selected {
     background: #677580;
     color: #f0f0f0;
-    border-radius: 2px;
   }
 
   @media screen and (max-width: 800px) {

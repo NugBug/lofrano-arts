@@ -63,9 +63,14 @@ export const OptionLink = styled(NavLink)`
     }
   }
 
+  &:active {
+    background: #677580;
+    color: #f0f0f0;
+    border-radius: 2px;
+  }
   
   &.selected {
-    background: #677580 !important;
+    background: #677580;
     color: #f0f0f0;
     border-radius: 2px;
   }

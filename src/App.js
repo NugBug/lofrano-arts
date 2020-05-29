@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selectors.js";
 import { checkUserSession } from "./redux/user/user.actions.js";
+import { hideCart } from "./redux/cart/cart.actions.js";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import GalleryPage from "./pages/gallery/gallery.component.jsx";
 import Header from "./components/header/header.component.jsx";
@@ -14,10 +15,14 @@ import CheckoutPage from "./pages/checkout/checkout.component.jsx";
 
 import { GlobalStyles } from "./global.styles";
 
-const App = ({ checkUserSession, currentUser, location }) => {
+const App = ({ checkUserSession, currentUser, location, hideCart }) => {
   useEffect(() => {
     checkUserSession()
   }, [checkUserSession]);
+
+  useEffect(() => {
+    hideCart()
+  });
   // This code will add new digital art collection data upon application mount, use in useEffect
   // Be sure to map state 'collectionsArray: selectCollectionsForPreview' to props and pass as prop
   // Import 'addCollectionAndDocuments from firebase.utils.js
@@ -68,6 +73,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
   checkUserSession: () => checkUserSession(),
+  hideCart: () => hideCart(),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

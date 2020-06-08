@@ -20,4 +20,4 @@ const rootReducer = combineReducers({
   gallery: galleryReducer,
 });
 
-export default persistReducer(persistConfig, rootReducer)
+export default persistReducer(persistConfig, rootReducer);

@@ -3,7 +3,7 @@ import GalleryActionTypes from "./gallery.types.js";
 const INITIAL_STATE = {
   collections: null,
   isFetching: false,
-  errorMessage: undefined,
+  errorMessage: null,
 };
 
 const galleryReducer = (state = INITIAL_STATE, action) => {

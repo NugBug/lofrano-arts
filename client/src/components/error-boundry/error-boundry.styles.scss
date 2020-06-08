@@ -1,0 +1,39 @@
+.error-overlay {
+  position: absolute;
+  width: 60vh;
+  height: 60vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
+}
+
+.error-image-container {
+  display: inline-block;
+  background-image: url("https://i.imgur.com/g3hgqe8.png");
+  background-size: cover;
+  background-position: center;
+  width: 40vh;
+  height: 40vh;
+}
+
+.error-message {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+
+  @media screen and (max-width: 800px) {
+    font-size: medium;
+  }
+}

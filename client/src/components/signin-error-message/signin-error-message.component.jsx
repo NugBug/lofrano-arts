@@ -2,11 +2,11 @@ import React from "react";
 import ScrollToTop from "../scroll-to-top/scroll-to-top.component.jsx";
 import CustomButton from "../custom-button/custom-button.component.jsx";
 
-import "./error-message.styles.scss";
+import "./signin-error-message.styles.scss";
 
 const WithErrorMessage = (WrappedComponent) => {
   const Error = ({ error, resetForm, ...otherProps }) => {
-    return error !== null ? (
+    return !!error ? (
       <div className="error-overlay">
         <ScrollToTop />
         <div className="error-message">{`${error.message}`}</div>

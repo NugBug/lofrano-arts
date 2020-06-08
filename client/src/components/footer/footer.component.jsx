@@ -6,15 +6,21 @@ import "./footer.styles.scss";
 const Footer = () => (
   <div className="footer">
     <div className="footer-top">
-      <a href="https://www.instagram.com/jloafrano/" target="blank">
-        <img
-          className="social-media-logo"
-          src={instagramLogo}
-          alt="instagram-account"
-        ></img>
-      </a>
+      <div className="social-media">
+        <a href="https://www.instagram.com/jloafrano/" target="blank">
+          <img
+            className="instagram-logo"
+            src={instagramLogo}
+            alt="instagram-account"
+          ></img>
+        </a>
+      </div>
       <p>Terms and Privacy</p>
-      <p><a href="mailto:lofranoart@gmail.com"  rel="noopener noreferrer">Contact</a></p>
+      <p>
+        <a href="mailto:lofranoart@gmail.com" rel="noopener noreferrer">
+          Contact
+        </a>
+      </p>
     </div>
     <div className="footer-bottom">
       <p>Copyright © Lofrano Arts 2020</p>

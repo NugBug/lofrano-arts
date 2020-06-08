@@ -1,9 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../../redux/gallery/gallery.actions";
-import CollectionPageContainer from "../collection/collection.container.jsx";
-import Directory from "../../components/directory/directory.component.jsx";
+import Spinner from "../../components/spinner/spinner.component.jsx";
+
+const Directory = lazy(() =>
+  import("../../components/directory/directory.component.jsx")
+);
+const CollectionPageContainer = lazy(() =>
+  import("../collection/collection.container.jsx")
+);
 
 const GalleryPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
@@ -12,15 +18,13 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
 
   return (
     <div className="gallery-page">
-      <Route
-        exact
-        path={`${match.path}`}
-        component={Directory}
-      />
-      <Route
-        path={`${match.path}/:collectionId`}
-        component={CollectionPageContainer}
-      />
+      <Suspense fallback={<Spinner />}>
+        <Route exact path={`${match.path}`} component={Directory} />
+        <Route
+          path={`${match.path}/:collectionId`}
+          component={CollectionPageContainer}
+        />
+      </Suspense>
     </div>
   );
 };

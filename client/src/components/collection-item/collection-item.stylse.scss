@@ -12,6 +12,7 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
+    transition: transform 0.2s;
   }
 
   .custom-button {
@@ -43,7 +44,8 @@
 
   &.for-sale:hover {
     .image {
-      opacity: 0.8;
+      cursor: pointer;
+      transform: scale(1.05);
     }
 
     .custom-button {

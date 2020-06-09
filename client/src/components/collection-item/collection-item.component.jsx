@@ -14,9 +14,11 @@ const CollectionItem = ({ item, addItem }) => {
     if (isShowing) {
       document.body.style.overflow = "hidden";
       document.body.style.position = "relative";
+      document.body.style.height = "100%";
     } else {
       document.body.style.overflow = "";
       document.body.style.position = "";
+      document.body.style.height = "";
     }
   });
 

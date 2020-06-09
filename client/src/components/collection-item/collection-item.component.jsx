@@ -11,14 +11,15 @@ const CollectionItem = ({ item, addItem }) => {
   const [isShowing, setIsShowing] = useState(false);
 
   useEffect(() => {
+    const bodyStyle = document.body.style;
     if (isShowing) {
-      document.body.style.touchAction = "none";
-      document.body.style.scrollBehavior = "none";
-      document.body.style.overflow = "hidden";
+      bodyStyle.touchAction = "none";
+      bodyStyle.scrollBehavior = "none";
+      bodyStyle.overflow = "hidden";
     } else {
-      document.body.style.touchAction = "";
-      document.body.style.overflow = "";
-      document.body.style.scrollBehavior = "";
+      bodyStyle.touchAction = "";
+      bodyStyle.overflow = "";
+      bodyStyle.scrollBehavior = "";
     }
   });
 

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+export const CartIconContainer = styled.div`
+  padding-bottom: 5px;
+`;
+
 export const HeaderContainer = styled.div`
   height: 70px;
   width: 100%;
@@ -47,28 +51,78 @@ export const OptionsContainer = styled.div`
 `;
 
 export const OptionLink = styled(NavLink)`
-  padding: 10px 15px;
+  padding: 5px 15px;
   cursor: pointer;
   width: 80px;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 3px;
-  background: rgba(131, 146, 158, 0);
-  transition: 0.3s;
+  text-decoration: none;
   -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
 
+  &:before {
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 2px;
+    content: "";
+    background: black;
+    transition: all 0.3s;
+    left: 0px;
+    top: 0px;
+  }
+
+  &:after {
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 2px;
+    content: "";
+    background: black;
+    transition: all 0.3s;
+    right: 0px;
+    bottom: 0px;
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      background: rgba(131, 146, 158, 1);
+    &:hover:before {
+      opacity: 1;
+      width: 100%;
+    }
+
+    &:hover:after {
+      opacity: 1;
+      width: 100%;
     }
   }
 
-  &.selected {
-    background: #677580;
-    color: #f0f0f0;
+  &.selected:before {
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 2px;
+    content: "";
+    background: black;
+    transition: all 0.3s;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    top: 0px;
+  }
+
+  &.selected:after {
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 2px;
+    content: "";
+    background: black;
+    transition: all 0.3s;
+    right: 0px;
+    bottom: 0px;
   }
 
   @media screen and (max-width: 800px) {

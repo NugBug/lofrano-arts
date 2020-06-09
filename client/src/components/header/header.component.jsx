@@ -12,6 +12,7 @@ import {
   LogoContainer,
   OptionsContainer,
   OptionLink,
+  CartIconContainer,
 } from "./header.styles.jsx";
 
 const Header = ({ currentUser, signOutStart }) => (
@@ -38,7 +39,9 @@ const Header = ({ currentUser, signOutStart }) => (
           SIGN IN
         </OptionLink>
       )}
-      <CartIcon />
+      <CartIconContainer>
+        <CartIcon />
+      </CartIconContainer>
     </OptionsContainer>
     <CartDropdown />
   </HeaderContainer>

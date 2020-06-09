@@ -12,13 +12,13 @@ const CollectionItem = ({ item, addItem }) => {
 
   useEffect(() => {
     if (isShowing) {
+      document.body.style.touchAction = "none";
+      document.body.style.scrollBehavior = "none";
       document.body.style.overflow = "hidden";
-      document.body.style.position = "relative";
-      document.body.style.height = "100%";
     } else {
+      document.body.style.touchAction = "";
       document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.height = "";
+      document.body.style.scrollBehavior = "";
     }
   });
 

@@ -10,9 +10,9 @@ export const HeaderContainer = styled.div`
   padding: 30px 0;
 
   @media screen and (max-width: 800px) {
-      margin-bottom: 0px;
-      padding: 25px 0 0 0;
-    }
+    margin-bottom: 0px;
+    padding: 25px 0 0 0;
+  }
 `;
 
 export const LogoContainer = styled(NavLink)`
@@ -25,12 +25,12 @@ export const LogoContainer = styled(NavLink)`
   }
 
   @media screen and (max-width: 800px) {
-      height: 30px;
-      width: 30px;
-      position: absolute;
-      top: 15px;
-      left: 15px;
-    }
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -41,9 +41,9 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
 
   @media screen and (max-width: 800px) {
-      justify-content: space-evenly;
-      padding-top: 15px;
-    }
+    justify-content: space-evenly;
+    padding-top: 15px;
+  }
 `;
 
 export const OptionLink = styled(NavLink)`
@@ -55,23 +55,25 @@ export const OptionLink = styled(NavLink)`
   align-items: center;
   flex-direction: column;
   border-radius: 3px;
-  -webkit-backface-visibility:  hidden;
-  -webkit-tap-highlight-color:  transparent;
+  background: rgba(131, 146, 158, 0);
+  transition: 0.3s;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background: #83929e;
+      background: rgba(131, 146, 158, 1);
     }
   }
-  
+
   &.selected {
     background: #677580;
     color: #f0f0f0;
   }
 
   @media screen and (max-width: 800px) {
-      font-size: 12px;
-      width: unset;
-      flex: 0 25%;
-    }
+    font-size: 12px;
+    width: unset;
+    flex: 0 25%;
+  }
 `;

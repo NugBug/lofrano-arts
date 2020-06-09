@@ -12,7 +12,7 @@ const CollectionItem = ({ item, addItem }) => {
 
   useEffect(() => {
     if (isShowing) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden!important";
     } else {
       document.body.style.overflow = "";
     }

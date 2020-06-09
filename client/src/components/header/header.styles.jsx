@@ -51,14 +51,11 @@ export const OptionsContainer = styled.div`
 `;
 
 export const OptionLink = styled(NavLink)`
-  padding: 5px 15px;
   cursor: pointer;
-  width: 80px;
-  display: flex;
+  padding: 5px 10px;
+  width: 100px;
   position: relative;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  text-align: center;
   text-decoration: none;
   -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -129,5 +126,7 @@ export const OptionLink = styled(NavLink)`
     font-size: 12px;
     width: unset;
     flex: 0 25%;
+    padding: unset;
+    padding-top: 5px;
   }
 `;

@@ -1,9 +1,13 @@
 import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cart.actions";
 
 import "./modal.styles.scss";
 
-const Modal = ({ name, imageUrl, show, close }) => {
+const Modal = ({ show, close, addItem, item }) => {
+  const { name, price, imageUrl, forSale } = item;
+
   return (
     <div className="modal">
       <div
@@ -26,11 +30,25 @@ const Modal = ({ name, imageUrl, show, close }) => {
           }}
         ></div>
         <div className="modal-footer">
-          <CustomButton className="btn-purchase">Purchase</CustomButton>
+          {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}
+          {forSale ? (
+            <CustomButton
+              onClick={() => addItem(item)}
+              className="btn-purchase"
+            >
+              Add To Cart
+            </CustomButton>
+          ) : (
+            <CustomButton className="btn-purchase">Inquire</CustomButton>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Modal;
+const mapDispatchToProps = {
+  addItem: (item) => addItem(item),
+};
+
+export default connect(null, mapDispatchToProps)(Modal);

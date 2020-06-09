@@ -6,10 +6,20 @@ const buttonStyles = css`
   border: none;
   border-radius: 5px;
 
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 `;
 
@@ -19,10 +29,20 @@ const invertedButtonStyles = css`
   border: 1px solid black;
   border-radius: 5px;
 
-  &:hover {
-    background-color: black;
-    color: white;
-    border: none;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: black;
+      color: white;
+      border: 1px solid black;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 `;
 
@@ -32,9 +52,19 @@ const googleSignInStyles = css`
   border: none;
   border-radius: 5px;
 
-  &:hover {
-    background-color: #2768d2;
-    border: none;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #2768d2;
+      border: none;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 `;
 

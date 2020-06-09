@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
@@ -10,12 +10,19 @@ const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl, forSale } = item;
   const [isShowing, setIsShowing] = useState(false);
 
+  useEffect(() => {
+    if (isShowing) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  });
+
   return (
     <div className={`${forSale ? "for-sale" : ""} collection-item`}>
       <Modal
         className="modal"
-        name={name}
-        imageUrl={imageUrl}
+        item={item}
         show={isShowing}
         close={() => setIsShowing(false)}
       ></Modal>

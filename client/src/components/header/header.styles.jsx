@@ -53,6 +53,7 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(NavLink)`
   cursor: pointer;
   padding: 5px 10px;
+  margin: 0px 5px;
   width: 100px;
   position: relative;
   text-align: center;

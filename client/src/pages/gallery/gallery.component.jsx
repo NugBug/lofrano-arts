@@ -18,6 +18,17 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
 
   return (
     <div className="gallery-page">
+      {/* // import React Profiler and uncomment this code to use the profiler
+      <Profiler
+        id="gallery-directory"
+        onRender={(id, phase, actualDuration) => {
+          console.log({
+            id,
+            phase,
+            actualDuration,
+          });
+        }}
+      > */}
       <Suspense fallback={<Spinner />}>
         <Route exact path={`${match.path}`} component={Directory} />
         <Route
@@ -25,6 +36,7 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
           component={CollectionPageContainer}
         />
       </Suspense>
+      {/* </Profiler> */}
     </div>
   );
 };

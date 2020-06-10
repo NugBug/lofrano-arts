@@ -6,6 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component.jsx";
 import App from "./App";
 import { store, persistor } from "./redux/store.js";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,3 +19,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+serviceWorker.register();

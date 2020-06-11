@@ -9,6 +9,7 @@ import Header from "./components/header/header.component.jsx";
 import Footer from "./components/footer/footer.component.jsx";
 import Spinner from "./components/spinner/spinner.component.jsx";
 import ErrorBoundry from "./components/error-boundry/error-boundry.component.jsx";
+import NotFoundPage from "./components/notFoundPage/notFoundPage.component.jsx";
 
 import { GlobalStyles } from "./global.styles";
 
@@ -48,13 +49,13 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
       <div className="content-wrap">
         <Header />
         <GlobalStyles />
-        <Switch>
-          <ErrorBoundry>
-            <Suspense fallback={<Spinner />}>
+        <ErrorBoundry>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
               <Route path="/gallery" component={GalleryPage} />
               <Route exact path="/" component={Hero} />
               <Route exact path="/homepage" component={HomePage} />
-              <Route path="/about" component={AboutPage} />
+              <Route exact path="/about" component={AboutPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route
                 exact
@@ -67,9 +68,10 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
                   )
                 }
               />
-            </Suspense>
-          </ErrorBoundry>
-        </Switch>
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Suspense>
+        </ErrorBoundry>
       </div>
       <div className={location.pathname !== "/" ? "footer-container" : ""}>
         {location.pathname !== "/" ? <Footer /> : ""}

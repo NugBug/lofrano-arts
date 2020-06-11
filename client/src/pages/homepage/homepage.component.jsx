@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HomePageContainer } from "./homepage.styles.jsx"
+import { HomePageContainer } from "./homepage.styles.jsx";
 
 const HomePage = () => (
   <HomePageContainer>

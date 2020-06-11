@@ -6,6 +6,6 @@ export const HomePageContainer = styled.div`
   align-items: center;
 
   @media screen and (max-width: 800px) {
-      padding-top: 50px;
-    }
-`
+    padding-top: 50px;
+  }
+`;

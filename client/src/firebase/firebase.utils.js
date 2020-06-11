@@ -39,6 +39,20 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+// Get user cart
+export const getUserCartRef = async (userId) => {
+  const cartsRef = firestore.collection("carts").where("userId", "==", userId);
+  const snapShot = await cartsRef.get();
+
+  if (snapShot.empty) {
+    const cartDocRef = firestore.collection("carts").doc();
+    await cartDocRef.set({ userId, cartItems: [] });
+    return cartDocRef;
+  } else {
+    return snapShot.docs[0].ref;
+  }
+};
+
 // Create digital art colleciton in Firestore
 export const addCollecitonAndDocuments = async (
   collectionKey,
@@ -75,14 +89,15 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   }, {});
 };
 
+// Retrieve current user data
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       unsubscribe();
       resolve(userAuth);
-    }, reject)
-  })
-}
+    }, reject);
+  });
+};
 
 // Firebase initialization, configuration and export of Firebase and Firestore specific objects
 firebase.initializeApp(config);

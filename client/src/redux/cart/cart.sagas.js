@@ -28,11 +28,8 @@ export function* checkCartFromFirebase({ payload: user }) {
   const cartSnapshot = yield cartRef.get();
 
   yield put(setCartFromFirebase(cartSnapshot.data().cartItems));
-  try {
-    yield call(updateCartInFirebase);
-  } catch (error) {
-    console.log(error);
-  }
+
+  yield call(updateCartInFirebase);
 }
 
 export function* onSignOutSucess() {

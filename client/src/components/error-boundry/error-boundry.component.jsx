@@ -12,6 +12,7 @@ class ErrorBoundry extends React.Component {
 
   static getDerivedStateFromError(error) {
     // process the error
+    console.log(error);
     return { hasErrored: true };
   }
 

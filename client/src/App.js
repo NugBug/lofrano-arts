@@ -52,7 +52,7 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
         <ErrorBoundry>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <Route path="/gallery" component={GalleryPage} />
+              <Route path="/gallery" component={GalleryPage} />s
               <Route exact path="/" component={Hero} />
               <Route exact path="/homepage" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />

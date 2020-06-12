@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import "firebase/storage";
 
 const config = {
   apiKey: "AIzaSyBfdUz5YyYMZdkElYp752ew7ccSwuEKV1s",
@@ -12,6 +13,9 @@ const config = {
   appId: "1:527780553285:web:128da2773130f28771f92c",
   measurementId: "G-ZQ1HH7TC08",
 };
+
+// Setup firebase storage
+// const storage = firebase.storage();
 
 // Create new user account document if user does not exist in Firestore
 export const createUserProfileDocument = async (userAuth, additionalData) => {

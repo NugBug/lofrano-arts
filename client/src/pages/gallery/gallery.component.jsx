@@ -1,8 +1,9 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../../redux/gallery/gallery.actions";
 import Spinner from "../../components/spinner/spinner.component.jsx";
+import NotFoundPage from "../../components/notFoundPage/notFoundPage.component.jsx";
 
 const Directory = lazy(() =>
   import("../../components/directory/directory.component.jsx")
@@ -11,7 +12,7 @@ const CollectionPageContainer = lazy(() =>
   import("../collection/collection.container.jsx")
 );
 
-const GalleryPage = ({ fetchCollectionsStart, match }) => {
+const GalleryPage = ({ fetchCollectionsStart, collections, match }) => {
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
@@ -30,11 +31,15 @@ const GalleryPage = ({ fetchCollectionsStart, match }) => {
         }}
       > */}
       <Suspense fallback={<Spinner />}>
-        <Route exact path={`${match.path}`} component={Directory} />
-        <Route
-          path={`${match.path}/:collectionId`}
-          component={CollectionPageContainer}
-        />
+        <Switch>
+          <Route exact path={`${match.path}`} component={Directory} />
+          <Route
+            exact
+            path={`${match.path}/:collectionId`}
+            component={CollectionPageContainer}
+          />
+          <Route component={NotFoundPage} />
+        </Switch>
       </Suspense>
       {/* </Profiler> */}
     </div>

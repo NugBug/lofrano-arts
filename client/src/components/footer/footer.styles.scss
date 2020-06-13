@@ -1,5 +1,5 @@
 .footer {
-  padding-top: 10px;
+  padding-top: 5px;
   position: relative;
   top: 100px;
   width: 100%;
@@ -26,7 +26,6 @@ a {
   justify-content: space-around;
   text-align: center;
   font-size: small;
-  padding: 5px 0;
 
   & > p,
   a {
@@ -45,7 +44,7 @@ a {
 
     & > p,
     a {
-      padding: 5px;
+      padding: 3px;
     }
   }
 }

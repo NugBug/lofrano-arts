@@ -13,8 +13,8 @@ const HomePage = () => (
       </div>
     </Fade>
     <div className="hero-statement">
-      <Fade cascade delay={500} duration={1500}>
-        <div className="hero-statement-text">
+      <div className="hero-statement-text">
+        <Fade delay={500} duration={1500}>
           <p>
             I feel there is a universal flow of energy and creativity that
             connects all of us.
@@ -22,6 +22,8 @@ const HomePage = () => (
           <div className="line-space"></div>
           <div className="line-space"></div>
           <hr></hr>
+        </Fade>
+        <Fade delay={500} duration={1500}>
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>
@@ -34,6 +36,8 @@ const HomePage = () => (
           <div className="line-space"></div>
           <div className="line-space"></div>
           <hr></hr>
+        </Fade>
+        <Fade delay={500} duration={1500}>
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>
@@ -43,8 +47,8 @@ const HomePage = () => (
             drawing brings another opportunity to respond, to connect, in that
             present moment. I see it as a stimulating conversation.
           </p>
-        </div>
-      </Fade>
+        </Fade>
+      </div>
     </div>
     <Fade duration={1500}>
       <div className="studio-sculpture"></div>

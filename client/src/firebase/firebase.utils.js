@@ -14,9 +14,6 @@ const config = {
   measurementId: "G-ZQ1HH7TC08",
 };
 
-// Setup firebase storage
-// const storage = firebase.storage();
-
 // Create new user account document if user does not exist in Firestore
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -105,6 +102,9 @@ export const getCurrentUser = () => {
 
 // Firebase initialization, configuration and export of Firebase and Firestore specific objects
 firebase.initializeApp(config);
+
+// Setup firebase storage
+export const storage = firebase.storage();
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

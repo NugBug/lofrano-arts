@@ -10,6 +10,7 @@ import Footer from "./components/footer/footer.component.jsx";
 import Spinner from "./components/spinner/spinner.component.jsx";
 import ErrorBoundry from "./components/error-boundry/error-boundry.component.jsx";
 import NotFoundPage from "./components/notFoundPage/notFoundPage.component.jsx";
+import ImageUpload from "./components/imageupload/imageupload.component.jsx";
 
 import { GlobalStyles } from "./global.styles";
 
@@ -51,7 +52,8 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
         <ErrorBoundry>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <Route path="/gallery" component={GalleryPage} />s
+              <Route exact path="/upload" component={ImageUpload} />
+              <Route path="/gallery" component={GalleryPage} />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/checkout" component={CheckoutPage} />

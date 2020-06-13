@@ -17,39 +17,35 @@ import {
 } from "./header.styles.jsx";
 
 const Header = ({ currentUser, signOutStart }) => (
-  <div>
-    {useLocation().pathname === "/" ? null : (
-      <HeaderContainer>
-        <LogoContainer to="/">
-          <Logo className="logo" />
-        </LogoContainer>
-        <OptionsContainer>
-          <OptionLink exact to="/" activeClassName="selected">
-            HOME
-          </OptionLink>
-          <OptionLink to="/gallery" activeClassName="selected">
-            GALLERY
-          </OptionLink>
-          <OptionLink exact to="/about" activeClassName="selected">
-            ABOUT
-          </OptionLink>
-          {currentUser ? (
-            <OptionLink id="signOut" to="/" onClick={signOutStart}>
-              SIGN OUT
-            </OptionLink>
-          ) : (
-            <OptionLink exact to="/signin" activeClassName="selected">
-              SIGN IN
-            </OptionLink>
-          )}
-          <CartIconContainer>
-            <CartIcon />
-          </CartIconContainer>
-        </OptionsContainer>
-        <CartDropdown />
-      </HeaderContainer>
-    )}
-  </div>
+  <HeaderContainer>
+    <LogoContainer to="/">
+      <Logo className="logo" />
+    </LogoContainer>
+    <OptionsContainer>
+      <OptionLink exact to="/" activeClassName="selected">
+        HOME
+      </OptionLink>
+      <OptionLink to="/gallery" activeClassName="selected">
+        GALLERY
+      </OptionLink>
+      <OptionLink exact to="/about" activeClassName="selected">
+        ABOUT
+      </OptionLink>
+      {currentUser ? (
+        <OptionLink id="signOut" to="/" onClick={signOutStart}>
+          SIGN OUT
+        </OptionLink>
+      ) : (
+        <OptionLink exact to="/signin" activeClassName="selected">
+          SIGN IN
+        </OptionLink>
+      )}
+      <CartIconContainer>
+        <CartIcon />
+      </CartIconContainer>
+    </OptionsContainer>
+    <CartDropdown />
+  </HeaderContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

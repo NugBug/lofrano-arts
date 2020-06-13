@@ -11,6 +11,7 @@ const HomePage = () => (
         <div className="hero">
           <h1 className="hero-text">Lofrano Arts</h1>
         </div>
+        <div id="offset-hero"></div>
       </div>
     </Fade>
     <div className="hero-statement">

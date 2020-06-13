@@ -1,0 +1,66 @@
+.studio-art {
+  margin-top: 15px;
+  background-image: url("../../assets/studio.drawing.jpg");
+  height: 100vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.studio-sculpture {
+  background-image: url("../../assets/studio.sculpture.jpg");
+  height: 1000px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero {
+  position: relative;
+  left: 0;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .hero-text-container {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    width: 35%;
+  }
+}
+
+.hero-statement {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.345);
+
+  .hero-statement-text {
+    color: #111;
+    padding: 125px;
+    font-size: 25px;
+    letter-spacing: 5px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 21px;
+      padding: 50px;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+p {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

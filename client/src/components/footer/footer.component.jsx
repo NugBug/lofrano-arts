@@ -1,10 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import instagramLogo from "../../assets/Instagram_logo.png";
 
 import "./footer.styles.scss";
 
 const Footer = () => (
-  <div className="footer">
+  <div
+    className={
+      useLocation().pathname === "/" ? `footer-homepage footer` : `footer`
+    }
+  >
     <div className="footer-top">
       <div className="social-media">
         <a href="https://www.instagram.com/jloafrano/" target="blank">

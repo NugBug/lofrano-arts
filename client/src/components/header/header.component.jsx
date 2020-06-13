@@ -17,17 +17,17 @@ import {
 
 const Header = ({ currentUser, signOutStart }) => (
   <HeaderContainer>
-    <LogoContainer to="/homepage">
+    <LogoContainer to="/">
       <Logo className="logo" />
     </LogoContainer>
     <OptionsContainer>
-      <OptionLink to="/homepage" activeClassName="selected">
+      <OptionLink exact to="/" activeClassName="selected">
         HOME
       </OptionLink>
       <OptionLink to="/gallery" activeClassName="selected">
         GALLERY
       </OptionLink>
-      <OptionLink to="/about" activeClassName="selected">
+      <OptionLink exact to="/about" activeClassName="selected">
         ABOUT
       </OptionLink>
       {currentUser ? (
@@ -35,7 +35,7 @@ const Header = ({ currentUser, signOutStart }) => (
           SIGN OUT
         </OptionLink>
       ) : (
-        <OptionLink to="/signin" activeClassName="selected">
+        <OptionLink exact to="/signin" activeClassName="selected">
           SIGN IN
         </OptionLink>
       )}

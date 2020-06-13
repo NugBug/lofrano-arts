@@ -14,12 +14,11 @@ import NotFoundPage from "./components/notFoundPage/notFoundPage.component.jsx";
 import { GlobalStyles } from "./global.styles";
 
 const GalleryPage = lazy(() => import("./pages/gallery/gallery.component.jsx"));
-const HomePage = lazy(() => import("./pages/homepage/homepage.component.jsx"));
 const CheckoutPage = lazy(() =>
   import("./pages/checkout/checkout.component.jsx")
 );
 const AboutPage = lazy(() => import("./pages/about/about.component.jsx"));
-const Hero = lazy(() => import("./components/hero/hero.component.jsx"));
+const HomePage = lazy(() => import("./pages/homepage/homepage.component.jsx"));
 const SignInAndSignUpPageContainer = lazy(() =>
   import("./pages/sign-in-and-sign-up/sign-in-and-sign-out.container")
 );
@@ -53,8 +52,7 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route path="/gallery" component={GalleryPage} />s
-              <Route exact path="/" component={Hero} />
-              <Route exact path="/homepage" component={HomePage} />
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route
@@ -62,7 +60,7 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
                 path="/signin"
                 render={() =>
                   currentUser ? (
-                    <Redirect to="/homepage" />
+                    <Redirect to="/" />
                   ) : (
                     <SignInAndSignUpPageContainer />
                   )
@@ -73,8 +71,8 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
           </Suspense>
         </ErrorBoundry>
       </div>
-      <div className={location.pathname !== "/" ? "footer-container" : ""}>
-        {location.pathname !== "/" ? <Footer /> : ""}
+      <div className="footer-container">
+        <Footer />
       </div>
     </div>
   );

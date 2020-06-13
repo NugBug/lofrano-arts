@@ -1,5 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 import "./homepage.styles.scss";
 
@@ -8,7 +9,7 @@ const HomePage = () => (
     <Fade delay={500} duration={1000}>
       <div className="studio-art">
         <div className="hero">
-          <h1 className="hero-text-container">Lofrano Arts</h1>
+          <h1 className="hero-text">Lofrano Arts</h1>
         </div>
       </div>
     </Fade>
@@ -51,7 +52,13 @@ const HomePage = () => (
       </div>
     </div>
     <Fade duration={1500}>
-      <div className="studio-sculpture"></div>
+      <div className="studio-sculpture">
+        <div className="button-container">
+          <Link className="btn" to="/gallery">
+            Explore
+          </Link>
+        </div>
+      </div>
     </Fade>
   </div>
 );

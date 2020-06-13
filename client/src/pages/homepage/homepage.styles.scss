@@ -8,6 +8,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .studio-sculpture {
@@ -20,8 +24,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 800px) {
     background-position: -400px;
@@ -29,21 +33,24 @@
 }
 
 .hero {
-  position: relative;
-  left: 0;
-  top: 25%;
-  width: 100%;
-  text-align: center;
+  background-color: rgba(17, 17, 17, 0.749);
+  width: 35%;
+  align-self: center;
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 10px;
 
   .hero-text {
-    background-color: rgba(17, 17, 17, 0.749);
     color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    letter-spacing: 10px;
-    width: 35%;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 8px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
   }
 }
 

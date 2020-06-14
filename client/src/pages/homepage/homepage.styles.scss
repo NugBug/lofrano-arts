@@ -70,17 +70,17 @@
     font-size: 25px;
     letter-spacing: 4px;
 
+    p {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
     @media screen and (max-width: 800px) {
       font-size: 21px;
       padding: 50px;
       letter-spacing: 2px;
     }
   }
-}
-
-p {
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 
 .btn {

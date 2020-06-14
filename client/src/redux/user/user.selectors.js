@@ -8,11 +8,16 @@ export const selectCurrentUser = createSelector(
 );
 
 export const selectSignInError = createSelector(
-  [selectUser], 
+  [selectUser],
   (user) => user.error
 );
 
 export const selectIsUserFetching = createSelector(
   [selectUser],
   (user) => user.isFetching
+);
+
+export const selectIsLoggedIn = createSelector(
+  [selectUser],
+  (user) => user.loggedIn
 );

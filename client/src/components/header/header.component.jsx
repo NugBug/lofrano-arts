@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "../../redux/user/user.selectors.js";
+import { selectIsLoggedIn } from "../../redux/user/user.selectors.js";
 import { signOutStart } from "../../redux/user/user.actions.js";
 import { ReactComponent as Logo } from "../../assets/LofranoArtsCustomLogo.svg";
 import CartIcon from "../cart-icon/cart-icon.component.jsx";
@@ -15,7 +15,7 @@ import {
   CartIconContainer,
 } from "./header.styles.jsx";
 
-const Header = ({ currentUser, signOutStart }) => (
+const Header = ({ userIsLoggedIn, signOutStart }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo className="logo" />
@@ -30,7 +30,7 @@ const Header = ({ currentUser, signOutStart }) => (
       <OptionLink exact to="/about" activeClassName="selected">
         ABOUT
       </OptionLink>
-      {currentUser ? (
+      {userIsLoggedIn ? (
         <OptionLink id="signOut" to="/" onClick={signOutStart}>
           SIGN OUT
         </OptionLink>
@@ -48,7 +48,7 @@ const Header = ({ currentUser, signOutStart }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
+  userIsLoggedIn: selectIsLoggedIn,
 });
 
 const mapDispatchToProps = {

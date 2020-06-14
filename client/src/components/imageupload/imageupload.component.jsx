@@ -41,6 +41,17 @@ const ImageUpload = () => {
     );
   };
 
+  // This code will add new digital art collection data upon application mount, use in useEffect
+  // Be sure to map state 'collectionsArray: selectCollectionsForPreview' to props and pass as prop
+  // Import 'addCollectionAndDocuments from firebase.utils.js
+  // Imprt selectCollectionsForPreview from gallery redux gallery.selector.js
+  //
+  // addCollecitonAndDocuments(
+  //   "collections",
+  //   collectionsArray.map(({ title, items }) => ({ title, items }))
+  // );
+  // });
+
   return (
     <div className="upload-form">
       <progress value={progress} max="100" />

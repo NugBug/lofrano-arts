@@ -1,9 +1,18 @@
 import UserActionTypes from "./user.types.js";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const INITIAL_STATE = {
   currentUser: null,
   error: null,
   isFetching: false,
+  loggedIn: false,
+};
+
+const persistConfig = {
+  key: "user",
+  storage,
+  whitelist: ["loggedIn"],
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +32,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: action.payload,
         error: null,
         isFetching: false,
+        loggedIn: true,
       };
     case UserActionTypes.SIGN_OUT_SUCCESS:
       return {
@@ -30,6 +40,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: null,
         error: null,
         isFetching: false,
+        loggedIn: false,
       };
     case UserActionTypes.SIGN_IN_FAILURE:
     case UserActionTypes.SIGN_OUT_FAILURE:
@@ -44,4 +55,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default userReducer;
+export default persistReducer(persistConfig, userReducer);

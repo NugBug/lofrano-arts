@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const enforce = require("express-sslify");
 
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -42,6 +44,17 @@ app.post("/payment", (req, res) => {
       res.status(200).send({ success: stripeRes });
     }
   });
+});
+
+app.post("/admin", (req, res) => {
+  if (
+    req.body.currentUserId === process.env.ADMIN_ONE ||
+    req.body.currentUserId === process.env.ADMIN_TWO
+  ) {
+    res.status(200).send({ permission: true });
+  } else {
+    res.status(401).send({ permission: false });
+  }
 });
 
 app.listen(port, (error) => {

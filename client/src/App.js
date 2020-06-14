@@ -1,8 +1,12 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
+import axios from "axios";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./redux/user/user.selectors.js";
+import {
+  selectCurrentUser,
+  selectIsLoggedIn,
+} from "./redux/user/user.selectors.js";
 import { checkUserSession } from "./redux/user/user.actions.js";
 import { hideCart } from "./redux/cart/cart.actions";
 import Header from "./components/header/header.component.jsx";
@@ -20,51 +24,66 @@ const CheckoutPage = lazy(() =>
 );
 const AboutPage = lazy(() => import("./pages/about/about.component.jsx"));
 const HomePage = lazy(() => import("./pages/homepage/homepage.component.jsx"));
-const SignInAndSignUpPageContainer = lazy(() =>
+const SignInAndSignOutPageContainer = lazy(() =>
   import("./pages/sign-in-and-sign-up/sign-in-and-sign-out.container")
 );
 
-const App = ({ checkUserSession, currentUser, location, hideCart }) => {
+const App = ({ checkUserSession, hideCart, userLoggedIn, currentUser }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
-
   useEffect(() => {
     hideCart();
   });
 
-  // This code will add new digital art collection data upon application mount, use in useEffect
-  // Be sure to map state 'collectionsArray: selectCollectionsForPreview' to props and pass as prop
-  // Import 'addCollectionAndDocuments from firebase.utils.js
-  // Imprt selectCollectionsForPreview from gallery redux gallery.selector.js
-  //
-  // addCollecitonAndDocuments(
-  //   "collections",
-  //   collectionsArray.map(({ title, items }) => ({ title, items }))
-  // );
-  // });
+  const accessAdmin = (user) => {
+    axios({
+      url: "admin",
+      method: "post",
+      data: {
+        currentUserId: user.id,
+      },
+    })
+      .then((response) => {
+        setIsAdmin(response.data.permission);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="page-container">
+      {currentUser ? accessAdmin(currentUser) : null}
       <div className="content-wrap">
         <Header />
         <GlobalStyles />
         <ErrorBoundry>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <Route exact path="/upload" component={ImageUpload} />
+              <Route
+                exact
+                path="/admin"
+                render={() => (isAdmin ? <ImageUpload /> : <NotFoundPage />)}
+              />
               <Route path="/gallery" component={GalleryPage} />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />
-              <Route exact path="/checkout" component={CheckoutPage} />
+              <Route
+                exact
+                path="/checkout"
+                render={() =>
+                  userLoggedIn ? <CheckoutPage /> : <Redirect to="/signin" />
+                }
+              />
               <Route
                 exact
                 path="/signin"
                 render={() =>
-                  currentUser ? (
+                  userLoggedIn ? (
                     <Redirect to="/" />
                   ) : (
-                    <SignInAndSignUpPageContainer />
+                    <SignInAndSignOutPageContainer />
                   )
                 }
               />
@@ -82,6 +101,7 @@ const App = ({ checkUserSession, currentUser, location, hideCart }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  userLoggedIn: selectIsLoggedIn,
 });
 
 const mapDispatchToProps = {

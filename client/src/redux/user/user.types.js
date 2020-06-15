@@ -12,6 +12,7 @@ const UserActionTypes = {
   SIGN_UP_SUCCESS: "SIGN_UP_SUCCESS",
   SIGN_UP_FAILURE: "SIGN_UP_FAILURE",
   RESET_FORM: "RESET_FORM",
+  CHECK_SESSION_SUCCESS: "CHECK_SESSION_SUCCESS",
 };
 
 export default UserActionTypes;

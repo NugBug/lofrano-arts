@@ -54,3 +54,8 @@ export const signUpFailure = (error) => ({
   type: UserActionTypes.SIGN_UP_FAILURE,
   payload: error,
 });
+
+export const checkSessoinSuccess = (user) => ({
+  type: UserActionTypes.CHECK_SESSION_SUCCESS,
+  payload: user,
+});

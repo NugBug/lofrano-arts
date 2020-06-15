@@ -6,6 +6,7 @@ import {
   getCurrentUser,
 } from "../../firebase/firebase.utils.js";
 import {
+  checkSessoinSuccess,
   signInSuccess,
   signInFailure,
   signOutSuccess,
@@ -25,6 +26,22 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
     );
     const userSnapshot = yield userRef.get();
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+  } catch (error) {
+    yield put(signInFailure(error));
+  }
+}
+export function* getSnapshotFromUserAuthCheckSession(userAuth, additionalData) {
+  try {
+    const userRef = yield call(
+      createUserProfileDocument,
+      userAuth,
+      additionalData
+    );
+    const userSnapshot = yield userRef.get();
+    console.log(userSnapshot.id);
+    yield put(
+      checkSessoinSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
+    );
   } catch (error) {
     yield put(signInFailure(error));
   }
@@ -52,7 +69,7 @@ export function* isUserAuthenticated() {
   try {
     const userAuth = yield getCurrentUser();
     if (!userAuth) return;
-    yield getSnapshotFromUserAuth(userAuth);
+    yield getSnapshotFromUserAuthCheckSession(userAuth);
   } catch (error) {
     yield put(signInFailure(error));
   }

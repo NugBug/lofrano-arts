@@ -30,7 +30,8 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     <div className="sign-in">
       <h2 className="title">I already have an account</h2>
       <span>
-        Sign in with your email and password or Google account to make purchases
+        Sign in with your email and password to make purchases or use your
+        Google account to sign in or sign up
       </span>
 
       <form onSubmit={handleSubmit}>

@@ -24,13 +24,12 @@
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           transform: scale(1.02);
-          transition: all 1s;
         }
       }
     }
 
     .full {
-      transition: all 300ms ease 0ms;
+      transition: all 400ms ease 0ms;
     }
 
     .thumb {

@@ -10,7 +10,7 @@
 
   .items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 15px;
 
     & .collection-item {
@@ -18,7 +18,17 @@
       justify-self: center;
     }
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 2500px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: 1700px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: 1300px) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }

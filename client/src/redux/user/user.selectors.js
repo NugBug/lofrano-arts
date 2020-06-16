@@ -22,11 +22,6 @@ export const selectIsLoggedIn = createSelector(
   (user) => user.loggedIn
 );
 
-export const selectHasSession = createSelector(
-  [selectUser],
-  (user) => user.hasSession
-);
-
 export const selectIsAdmin = createSelector(
   [selectUser],
   (user) => user.isAdmin

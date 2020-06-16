@@ -5,7 +5,7 @@ import { getUserCartRef } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../user/user.selectors";
 import { selectCartItems } from "./cart.selectors";
 import CartActionTypes from "./cart.types";
-import { selectHasSession } from "../user/user.selectors";
+import { selectIsLoggedIn } from "../user/user.selectors";
 
 export function* clearCartOnSignOut() {
   yield put(clearCart());
@@ -28,7 +28,7 @@ export function* checkCartFromFirebase({ payload: user }) {
   const cartRef = yield getUserCartRef(user.id);
   const cartSnapshot = yield cartRef.get();
 
-  const hasSession = yield select(selectHasSession);
+  const hasSession = yield select(selectIsLoggedIn);
   if (!hasSession) {
     yield put(setCartFromFirebase(cartSnapshot.data().cartItems));
   }

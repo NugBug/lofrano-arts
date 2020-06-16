@@ -30,7 +30,6 @@ export function* checkCartFromFirebase({ payload: user }) {
 
   const hasSession = yield select(selectHasSession);
   if (!hasSession) {
-    console.log("in set cart from firebase");
     yield put(setCartFromFirebase(cartSnapshot.data().cartItems));
   }
 

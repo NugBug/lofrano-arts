@@ -1,11 +1,11 @@
-import React, { useEffect, lazy, Suspense, useState } from "react";
-import axios from "axios";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import {
   selectCurrentUser,
   selectIsLoggedIn,
+  selectIsAdmin,
 } from "./redux/user/user.selectors.js";
 import { checkUserSession } from "./redux/user/user.actions.js";
 import { hideCart } from "./redux/cart/cart.actions";
@@ -28,9 +28,7 @@ const SignInAndSignOutPageContainer = lazy(() =>
   import("./pages/sign-in-and-sign-up/sign-in-and-sign-out.container")
 );
 
-const App = ({ checkUserSession, hideCart, userLoggedIn, currentUser }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
-
+const App = ({ checkUserSession, hideCart, userLoggedIn, isAdmin }) => {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
@@ -38,24 +36,9 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, currentUser }) => {
     hideCart();
   });
 
-  const accessAdmin = (user) => {
-    axios({
-      url: "admin",
-      method: "post",
-      data: {
-        currentUserId: user.id,
-      },
-    })
-      .then((response) => {
-        setIsAdmin(response.data.permission);
-      })
-      .catch((error) => console.log(error));
-  };
-
   return (
     <div className="page-container">
       <div className="content-wrap">
-        {currentUser ? accessAdmin(currentUser) : null}
         <Header />
         <GlobalStyles />
         <ErrorBoundry>
@@ -102,6 +85,7 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, currentUser }) => {
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   userLoggedIn: selectIsLoggedIn,
+  isAdmin: selectIsAdmin,
 });
 
 const mapDispatchToProps = {

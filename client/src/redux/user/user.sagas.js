@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
+import { takeLatest, put, all, call, select } from "redux-saga/effects";
 import {
   auth,
   googleProvider,
@@ -13,7 +13,10 @@ import {
   signOutFailure,
   signUpSuccess,
   signUpFailure,
+  checkUserAdmin,
 } from "./user.actions.js";
+import { selectCurrentUser } from "./user.selectors";
+import axios from "axios";
 
 import UserActionTypes from "./user.types";
 
@@ -92,6 +95,26 @@ export function* signUp({ payload: { email, password, name } }) {
   }
 }
 
+export function* checkAdmin() {
+  try {
+    const user = yield select(selectCurrentUser);
+    const isAdmin = yield axios({
+      url: "admin",
+      method: "post",
+      data: {
+        currentUserId: user.id,
+      },
+    })
+      .then((response) => {
+        return response.data.permission;
+      })
+      .catch((error) => console.log(error));
+    yield put(checkUserAdmin(isAdmin));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function* signInAfterSignUp({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData);
 }
@@ -120,6 +143,10 @@ export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
 
+export function* checkAdminPermission() {
+  yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, checkAdmin);
+}
+
 export function* userSagas() {
   yield all([
     call(onGoogleSignInStart),
@@ -128,5 +155,6 @@ export function* userSagas() {
     call(onSignOutStart),
     call(onSignUpStart),
     call(onSignUpSuccess),
+    call(checkAdminPermission),
   ]);
 }

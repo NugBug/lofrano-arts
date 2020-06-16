@@ -8,12 +8,13 @@ const INITIAL_STATE = {
   isFetching: false,
   loggedIn: false,
   hasSession: false,
+  isAdmin: false,
 };
 
 const persistConfig = {
   key: "user",
   storage,
-  whitelist: ["loggedIn", "hasSession"],
+  whitelist: ["loggedIn", "hasSession", "isAdmin"],
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -52,6 +53,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
         loggedIn: false,
         hasSession: false,
+        isAdmin: false,
       };
     case UserActionTypes.SIGN_IN_FAILURE:
     case UserActionTypes.SIGN_OUT_FAILURE:
@@ -60,6 +62,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         error: action.payload,
         isFetching: false,
+      };
+    case UserActionTypes.CHECK_USER_ADMIN:
+      return {
+        ...state,
+        isAdmin: action.payload,
       };
     default:
       return state;

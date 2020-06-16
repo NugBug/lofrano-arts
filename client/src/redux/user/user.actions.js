@@ -59,3 +59,8 @@ export const checkSessoinSuccess = (user) => ({
   type: UserActionTypes.CHECK_SESSION_SUCCESS,
   payload: user,
 });
+
+export const checkUserAdmin = (permission) => ({
+  type: UserActionTypes.CHECK_USER_ADMIN,
+  payload: permission,
+});

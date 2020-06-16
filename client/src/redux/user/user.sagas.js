@@ -83,7 +83,7 @@ export function* checkAdmin() {
   try {
     const user = yield select(selectCurrentUser);
     const isAdmin = yield axios({
-      url: "admin",
+      url: "/admin",
       method: "post",
       data: {
         currentUserId: user.id,

@@ -26,3 +26,8 @@ export const selectIsAdmin = createSelector(
   [selectUser],
   (user) => user.isAdmin
 );
+
+export const selectHasSession = createSelector(
+  [selectUser],
+  (user) => user.hasSessionCheck
+);

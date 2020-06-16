@@ -2,12 +2,11 @@ import { all, call, takeLatest, put, select } from "redux-saga/effects";
 import UserActionTypes from "../user/user.types.js";
 import { setCartFromFirebase, clearCart } from "./cart.actions.js";
 import { getUserCartRef } from "../../firebase/firebase.utils";
-import { selectCurrentUser } from "../user/user.selectors";
+import { selectCurrentUser, selectHasSession } from "../user/user.selectors";
 import { selectCartItems } from "./cart.selectors";
 import CartActionTypes from "./cart.types";
-import { selectIsLoggedIn } from "../user/user.selectors";
-import { confirmAlert } from "../../components/confirm-alert/confirm-alert.component.jsx";
-import "../../components/confirm-alert/react-confirm-alert.css";
+import { confirmAlert } from "../../utils/confirm-alert/confirm-alert.utils.jsx";
+import "../../utils/confirm-alert/react-confirm-alert.css";
 
 export function* clearCartOnSignOut() {
   yield put(clearCart());
@@ -30,7 +29,7 @@ export function* checkCartFromFirebase({ payload: user }) {
   const cartRef = yield getUserCartRef(user.id);
   const cartSnapshot = yield cartRef.get();
 
-  const hasSession = yield select(selectIsLoggedIn);
+  const hasSession = yield select(selectHasSession);
   if (!hasSession) {
     yield put(setCartFromFirebase(cartSnapshot.data().cartItems));
   }

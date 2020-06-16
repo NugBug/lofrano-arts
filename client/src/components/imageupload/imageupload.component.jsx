@@ -138,14 +138,14 @@ const ImageUpload = () => {
   };
 
   return (
-    <div>
+    <div className="upload-form">
       {progress < 100 && progress > 0 ? (
-        <div className="upload-form">
+        <div>
           Upload Progress:&nbsp;&nbsp;&nbsp;
           <progress value={progress} max="100" />
         </div>
       ) : (
-        <div className="upload-form">
+        <div>
           <input
             id="image-upload"
             className="file-upload"
@@ -154,9 +154,8 @@ const ImageUpload = () => {
             onChange={handleChange}
           />
           <br />
+          <br />
           <form className="form" id="submission-form">
-            <br />
-            <br />
             <ul className="form-outer">
               <li>
                 <label className="image-title" htmlFor="name">

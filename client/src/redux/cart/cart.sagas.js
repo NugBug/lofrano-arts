@@ -6,8 +6,8 @@ import { selectCurrentUser } from "../user/user.selectors";
 import { selectCartItems } from "./cart.selectors";
 import CartActionTypes from "./cart.types";
 import { selectIsLoggedIn } from "../user/user.selectors";
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
+import { confirmAlert } from "../../components/confirm-alert/confirm-alert.component.jsx";
+import "../../components/confirm-alert/react-confirm-alert.css";
 
 export function* clearCartOnSignOut() {
   yield put(clearCart());

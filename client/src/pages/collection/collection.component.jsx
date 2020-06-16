@@ -5,7 +5,6 @@ import { selectCollection } from "../../redux/gallery/gallery.selectors.js";
 import { selectCartTotal } from "../../redux/cart/cart.selectors";
 import { Link } from "react-router-dom";
 import NotFoundPage from "../../components/notFoundPage/notFoundPage.component.jsx";
-
 import "./collection.styles.scss";
 
 const CollectionPage = ({ collection }) => {

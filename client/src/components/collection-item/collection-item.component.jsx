@@ -9,6 +9,7 @@ import "./collection-item.stylse.scss";
 const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl, forSale } = item;
   const [isShowing, setIsShowing] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const bodyStyle = document.body.style;
@@ -31,13 +32,25 @@ const CollectionItem = ({ item, addItem }) => {
         show={isShowing}
         close={() => setIsShowing(false)}
       ></Modal>
-      <div
-        onClick={() => setIsShowing(true)}
-        className="image"
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
-      />
+      <div onClick={() => setIsShowing(true)} className="image-container">
+        <React.Fragment>
+          <img
+            className="image thumb"
+            alt={name}
+            src={imageUrl}
+            style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          />
+          <img
+            onLoad={() => {
+              setIsLoaded(true);
+            }}
+            className="image full"
+            style={{ opacity: isLoaded ? 1 : 0 }}
+            alt={name}
+            src={imageUrl}
+          />
+        </React.Fragment>
+      </div>
       <div className="collection-footer">
         <span className="name">{name}</span>
         {!forSale ? (

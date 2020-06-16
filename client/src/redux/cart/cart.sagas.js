@@ -6,6 +6,7 @@ import { selectCurrentUser } from "../user/user.selectors";
 import { selectCartItems } from "./cart.selectors";
 import CartActionTypes from "./cart.types";
 import { selectIsLoggedIn } from "../user/user.selectors";
+import { confirmAlert } from "react-confirm-alert";
 
 export function* clearCartOnSignOut() {
   yield put(clearCart());
@@ -37,7 +38,17 @@ export function* checkCartFromFirebase({ payload: user }) {
 }
 
 export function* itemAddedConfirmation() {
-  yield alert("Item Added To Cart!");
+  yield alert("Item added to cart!");
+  yield confirmAlert({
+    title: "Your item has been added!",
+    message: "Your item has been added!",
+    buttons: [
+      {
+        label: "Continue",
+        onClick: () => alert("Continue"),
+      },
+    ],
+  });
 }
 
 export function* onSignOutSucess() {

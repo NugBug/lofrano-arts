@@ -112,7 +112,7 @@ export function* onEmailSignInStart() {
 }
 
 export function* onCheckUserSession() {
-  yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, isUserAuthenticated);
+  yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
 }
 
 export function* onSignOutStart() {

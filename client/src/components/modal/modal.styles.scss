@@ -20,6 +20,10 @@
   line-height: 40px;
   padding: 10px 20px;
   text-align: right;
+
+  @media screen and (max-height: 500px) {
+    padding: 0px 15px;
+  }
 }
 
 .modal-header h3 {
@@ -43,10 +47,14 @@
   background: #263238;
   color: white;
   height: 35px;
-  padding: 20px 25px 75px 25px;
+  padding: 20px 25px 50px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-height: 500px) {
+    padding: 10px 25px 10px 25px;
+  }
 }
 
 .close-modal-btn {

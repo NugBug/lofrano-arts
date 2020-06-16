@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { storage, firestore } from "../../firebase/firebase.utils.js";
+import imageCompression from "browser-image-compression";
 import firebase from "firebase/app";
 
 import { getDocId } from "./mapdocuments.utils.js";
@@ -21,37 +22,54 @@ const ImageUpload = () => {
   });
 
   // Upload image and data to firebase storage and database
-  const handleUpload = (data, image, document) => {
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // firebase storage upload progress
-        setProgress(
-          Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+  const handleUpload = async (data, image, document) => {
+    const options = {
+      maxSizeMB: 1.5,
+      useWebWorker: true,
+    };
+
+    try {
+      setProgress(1);
+      const compressedFile = await imageCompression(image, options);
+      await storage
+        .ref(`images/${compressedFile.name}`)
+        .put(compressedFile)
+        .on(
+          "state_changed",
+          (snapshot) => {
+            // firebase storage upload progress
+            setProgress(
+              Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100 + 1
+              )
+            );
+          },
+          (error) => {
+            // firebase storage upload error
+            console.log(error);
+          },
+          () => {
+            // firebase storage upload complete and start database write
+            storage
+              .ref("images")
+              .child(compressedFile.name)
+              .getDownloadURL()
+              .then((url) => {
+                const docRef = firestore
+                  .collection("collections")
+                  .doc(document);
+                docRef.update({
+                  items: firebase.firestore.FieldValue.arrayUnion({
+                    ...data,
+                    imageUrl: url,
+                  }),
+                });
+              });
+          }
         );
-      },
-      (error) => {
-        // firebase storage upload error
-        console.log(error);
-      },
-      () => {
-        // firebase storage upload complete and start database write
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            const docRef = firestore.collection("collections").doc(document);
-            docRef.update({
-              items: firebase.firestore.FieldValue.arrayUnion({
-                ...data,
-                imageUrl: url,
-              }),
-            });
-          });
-      }
-    );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Handle form change events

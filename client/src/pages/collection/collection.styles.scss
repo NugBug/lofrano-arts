@@ -23,13 +23,12 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 950px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: unset;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: unset;

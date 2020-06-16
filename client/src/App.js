@@ -54,8 +54,8 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, currentUser }) => {
 
   return (
     <div className="page-container">
-      {currentUser ? accessAdmin(currentUser) : null}
       <div className="content-wrap">
+        {currentUser ? accessAdmin(currentUser) : null}
         <Header />
         <GlobalStyles />
         <ErrorBoundry>

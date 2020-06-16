@@ -39,7 +39,14 @@ const Modal = ({ show, close, addItem, item }) => {
               Add To Cart
             </CustomButton>
           ) : (
-            <CustomButton className="btn-purchase">Inquire</CustomButton>
+            <CustomButton
+              className="btn-purchase"
+              onClick={() =>
+                window.location.assign("mailto:lofranoart@gmail.com")
+              }
+            >
+              Inquire
+            </CustomButton>
           )}
         </div>
       </div>

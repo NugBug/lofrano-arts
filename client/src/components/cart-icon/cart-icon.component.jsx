@@ -7,12 +7,14 @@ import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 
 import "./cart-icon.styles.scss";
 
-const CartIcon = ({ toggleCartHidden, itemCount, cartHidden }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
-    <ShoppingIcon className="shopping-icon" />
-    <span className="item-count">{itemCount}</span>
-  </div>
-);
+const CartIcon = ({ toggleCartHidden, itemCount, cartHidden }) => {
+  return (
+    <div className="cart-icon" onClick={toggleCartHidden}>
+      <ShoppingIcon className="shopping-icon" />
+      <span className="item-count">{itemCount}</span>
+    </div>
+  );
+};
 
 const mapDispatchToProps = {
   toggleCartHidden: () => toggleCartHidden(),

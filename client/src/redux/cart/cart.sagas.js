@@ -37,6 +37,10 @@ export function* checkCartFromFirebase({ payload: user }) {
   yield call(updateCartInFirebase);
 }
 
+export function* itemAddedConfirmation() {
+  yield alert("Item Added To Cart!");
+}
+
 export function* onSignOutSucess() {
   yield takeLatest(UserActionTypes.SIGN_OUT_SUCCESS, clearCartOnSignOut);
 }
@@ -56,6 +60,15 @@ export function* onCartChange() {
   );
 }
 
+export function* cartUpdated() {
+  yield takeLatest(CartActionTypes.ADD_ITEM, itemAddedConfirmation);
+}
+
 export function* cartSagas() {
-  yield all([call(onSignOutSucess), call(onCartChange), call(onUserSignIn)]);
+  yield all([
+    call(onSignOutSucess),
+    call(onCartChange),
+    call(onUserSignIn),
+    call(cartUpdated),
+  ]);
 }

@@ -38,7 +38,6 @@ export function* getSnapshotFromUserAuthCheckSession(userAuth, additionalData) {
       additionalData
     );
     const userSnapshot = yield userRef.get();
-    console.log(userSnapshot.id);
     yield put(
       checkSessoinSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
     );

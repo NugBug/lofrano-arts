@@ -20,20 +20,21 @@
       left: 0;
       width: 100%;
       height: 95%;
-      transition: transform 1s ease 500ms;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           transform: scale(1.02);
+          transition: all 1s;
         }
       }
     }
 
     .full {
-      transition: opacity 400ms ease 0ms;
+      transition: all 300ms ease 0ms;
     }
+
     .thumb {
-      filter: blur(20px);
+      filter: blur(15px);
       transition: visibility 0ms ease 500ms;
     }
   }
@@ -120,6 +121,6 @@
   }
 
   @media screen and (max-width: 500px) {
-    width: 90vw;
+    width: 85vw;
   }
 }

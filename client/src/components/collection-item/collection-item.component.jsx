@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
 import Modal from "../../components/modal/modal.component.jsx";
+import thumb from "../../assets/LofranoArtsLogoOnly.svg";
 
 import "./collection-item.stylse.scss";
 
@@ -37,7 +38,7 @@ const CollectionItem = ({ item, addItem }) => {
           <img
             className="image thumb"
             alt={name}
-            src={imageUrl}
+            src={thumb}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
           <img

@@ -34,9 +34,19 @@ const CollectionItem = ({ item, addItem }) => {
         close={() => setIsShowing(false)}
       ></Modal>
       <div onClick={() => setIsShowing(true)} className="image-container">
+        <div
+          className="image-loader"
+          style={{ visibility: isLoaded ? "hidden" : "visible " }}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <React.Fragment>
           <img
             className="image thumb"
+            alt={""}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
           <LazyLoadImage

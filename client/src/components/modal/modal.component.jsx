@@ -3,7 +3,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
-import Spinner from "../../components/spinner/spinner.component";
 
 import "./modal.styles.scss";
 
@@ -28,10 +27,13 @@ const Modal = ({ show, close, addItem, item }) => {
         </div>
         <div className="modal-body" onClick={close}>
           <div
-            className="loading"
+            className="modal-loader"
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           >
-            <h1>Loading...</h1>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
           {show ? (
             <LazyLoadImage

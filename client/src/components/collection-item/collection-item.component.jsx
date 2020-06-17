@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
 import Modal from "../../components/modal/modal.component.jsx";
-import thumb from "../../assets/LofranoArtsLogoOnly.svg";
 
 import "./collection-item.stylse.scss";
 
 const CollectionItem = ({ item, addItem }) => {
-  const { name, price, imageUrl, forSale } = item;
+  const { name, price, imageUrl, forSale, thumbUrl } = item;
   const [isShowing, setIsShowing] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -38,7 +37,7 @@ const CollectionItem = ({ item, addItem }) => {
           <img
             className="image thumb"
             alt={name}
-            src={thumb}
+            src={thumbUrl}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
           <img

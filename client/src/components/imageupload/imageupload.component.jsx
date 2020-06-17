@@ -11,6 +11,7 @@ const ImageUpload = () => {
   const [forSale, setForSale] = useState(false);
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [formData, updateFormData] = useState({
     forSale: forSale,
@@ -21,75 +22,100 @@ const ImageUpload = () => {
     category: null,
   });
 
-  // Upload image and data to firebase storage and database
-  const handleUpload = async (data, image, document) => {
-    const options = {
-      maxSizeMB: 1.5,
-      useWebWorker: true,
-    };
-
+  // firebase data upload
+  const firebaseUpload = async (data, displayImage, thumbImage, document) => {
     try {
-      setProgress(1);
-      const compressedFile = await imageCompression(image, options);
-      await storage
-        .ref(`images/${compressedFile.name}`)
-        .put(compressedFile)
-        .on(
-          "state_changed",
-          (snapshot) => {
-            // firebase storage upload progress
-            setProgress(
-              Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100 + 1
-              )
-            );
-          },
-          (error) => {
-            // firebase storage upload error
-            console.log(error);
-          },
-          () => {
-            // firebase storage upload complete and start database write
-            storage
-              .ref("images")
-              .child(compressedFile.name)
-              .getDownloadURL()
-              .then((url) => {
-                const docRef = firestore
-                  .collection("collections")
-                  .doc(document);
-                docRef.update({
-                  items: firebase.firestore.FieldValue.arrayUnion({
-                    ...data,
-                    imageUrl: url,
-                  }),
-                });
-              });
-          }
-        );
+      const docRef = await firestore.collection("collections").doc(document);
+      await docRef.update({
+        items: firebase.firestore.FieldValue.arrayUnion({
+          ...data,
+          imageUrl: displayImage,
+          thumbUrl: thumbImage,
+        }),
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Handle form change events
-  const handleChange = (e) => {
-    // Grab form data
-    updateFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-
-    //grab file for upload
-    if (e.target.files) {
-      setImage(e.target.files[0]);
-      setFile(URL.createObjectURL(e.target.files[0]));
+  // Image storage upload
+  const firestoreUpload = async (reference) => {
+    try {
+      await reference.on(
+        "state_changed",
+        (snapshot) => {
+          // firebase storage upload progress
+          setProgress(
+            Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+          );
+        },
+        (error) => {
+          // firebase storage upload error
+          console.log(error);
+        },
+        () => {
+          reference.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            console.log(downloadURL);
+          });
+        }
+      );
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  // Compress image and gather data for firebase storage and database upload
+  const handleUpload = async (data, image, document, databaseUpload) => {
+    setProgress(1);
+
+    const imageOptions = {
+      maxSizeMB: 1.5,
+      useWebWorker: true,
+    };
+
+    const thumbnailOptions = {
+      maxSizeMB: 0.3,
+      maxWidthOrHeight: 450,
+      useWebWorker: true,
+    };
+
+    const compressedFile = await imageCompression(image, imageOptions);
+    const compressThumbnail = await imageCompression(image, thumbnailOptions);
+
+    const uploadTask1 = storage
+      .ref(`/images/${data.name}_display`)
+      .put(compressedFile);
+    const uploadTask2 = storage
+      .ref(`/images/${data.name}_thumb`)
+      .put(compressThumbnail);
+
+    Promise.all([uploadTask1, uploadTask2])
+      .then(async (tasks) => {
+        let imageUrl = await storage
+          .ref(`images/${data.name}_display`)
+          .getDownloadURL()
+          .then((url) => url);
+
+        let thumbUrl = await storage
+          .ref(`images/${data.name}_thumb`)
+          .getDownloadURL()
+          .then((url) => url);
+
+        return { imageUrl, thumbUrl };
+      })
+      .then(({ imageUrl, thumbUrl }) => {
+        databaseUpload(data, imageUrl, thumbUrl, document);
+        setUploading(false);
+      });
+
+    firestoreUpload(uploadTask1);
+    firestoreUpload(uploadTask2);
   };
 
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    setUploading(true);
 
     // Hash function to generate unique art item id
     const hashId = (artName) =>
@@ -117,13 +143,28 @@ const ImageUpload = () => {
       category,
     };
 
-    // Call firebase data and image upload handler
+    // Form validation
     if (!image) {
       alert("Select image before upload");
     } else if (!data.name || !data.category) {
       alert("Fill out form data");
     } else {
-      handleUpload(data, image, documentID);
+      handleUpload(data, image, documentID, firebaseUpload);
+    }
+  };
+
+  // Handle form change events
+  const handleChange = (e) => {
+    // Grab form data
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+    //grab file for upload
+    if (e.target.files) {
+      setImage(e.target.files[0]);
+      setFile(URL.createObjectURL(e.target.files[0]));
     }
   };
 
@@ -139,7 +180,7 @@ const ImageUpload = () => {
 
   return (
     <div className="upload-form">
-      {progress < 100 && progress > 0 ? (
+      {uploading ? (
         <div>
           Upload Progress:&nbsp;&nbsp;&nbsp;
           <progress value={progress} max="100" />
@@ -151,7 +192,14 @@ const ImageUpload = () => {
             className="file-upload"
             type="file"
             name="image"
-            onChange={handleChange}
+            onChange={(e) => {
+              if (e.target.value.length > 0) {
+                handleChange(e);
+              } else {
+                setFile(null);
+                setImage(null);
+              }
+            }}
           />
           <br />
           <br />

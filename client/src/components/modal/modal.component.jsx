@@ -25,6 +25,7 @@ const Modal = ({ show, close, addItem, item }) => {
         </div>
         <div
           className="modal-body"
+          onClick={close}
           style={{
             backgroundImage: `url(${imageUrl})`,
           }}

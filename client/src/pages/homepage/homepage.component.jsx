@@ -1,11 +1,19 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import "./homepage.styles.scss";
 
 const HomePage = () => (
   <div className="homepage">
+    <Helmet>
+      <title>Lofrano Arts - SF Art and Sculptures</title>
+      <meta
+        name="description"
+        content="A universal flow of energy and creativity that connects all of us."
+      />
+    </Helmet>
     <Fade delay={500} duration={1000}>
       <div className="studio-art">
         <div className="hero">

@@ -38,7 +38,7 @@ const ImageUpload = () => {
     }
   };
 
-  // Image storage upload
+  // firebase storage upload
   const firestoreUpload = async (reference) => {
     try {
       await reference.on(

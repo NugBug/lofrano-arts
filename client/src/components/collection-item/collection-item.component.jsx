@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
@@ -7,7 +8,7 @@ import Modal from "../../components/modal/modal.component.jsx";
 import "./collection-item.stylse.scss";
 
 const CollectionItem = ({ item, addItem }) => {
-  const { name, price, imageUrl, forSale, thumbUrl } = item;
+  const { name, price, forSale, thumbUrl } = item;
   const [isShowing, setIsShowing] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -34,20 +35,20 @@ const CollectionItem = ({ item, addItem }) => {
       ></Modal>
       <div onClick={() => setIsShowing(true)} className="image-container">
         <React.Fragment>
-          <img
+          <LazyLoadImage
             className="image thumb"
             alt={name}
             src={thumbUrl}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
-          <img
+          <LazyLoadImage
             onLoad={() => {
               setIsLoaded(true);
             }}
             className="image full"
             style={{ opacity: isLoaded ? 1 : 0 }}
             alt={name}
-            src={imageUrl}
+            src={thumbUrl}
           />
         </React.Fragment>
       </div>

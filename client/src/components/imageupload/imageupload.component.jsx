@@ -223,7 +223,9 @@ const ImageUpload = () => {
                 <label className="for-sale" htmlFor="forSale">
                   For Sale:
                 </label>
-                <label htmlFor="isForSale">YES</label>
+                <label className="radio-sale" htmlFor="isForSale">
+                  Yes
+                </label>
                 <input
                   type="radio"
                   name="forSale"
@@ -231,7 +233,9 @@ const ImageUpload = () => {
                   onChange={() => setForSale(true)}
                   value={forSale}
                 />
-                <label htmlFor="isForSale">No</label>
+                <label className="radio-sale" htmlFor="isForSale">
+                  No
+                </label>
                 <input
                   type="radio"
                   name="forSale"

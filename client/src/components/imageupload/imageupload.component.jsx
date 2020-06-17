@@ -69,8 +69,9 @@ const ImageUpload = () => {
     setProgress(1);
 
     const imageOptions = {
-      maxSizeMB: 3.0,
+      maxSizeMB: 4.0,
       useWebWorker: true,
+      mamaxWidthOrHeight: 4080,
     };
 
     const thumbnailOptions = {

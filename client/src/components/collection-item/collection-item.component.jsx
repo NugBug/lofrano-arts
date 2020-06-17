@@ -35,10 +35,8 @@ const CollectionItem = ({ item, addItem }) => {
       ></Modal>
       <div onClick={() => setIsShowing(true)} className="image-container">
         <React.Fragment>
-          <LazyLoadImage
+          <img
             className="image thumb"
-            alt={name}
-            src={thumbUrl}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
           <LazyLoadImage

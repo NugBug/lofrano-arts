@@ -54,7 +54,6 @@ const Modal = ({ show, close, addItem, item }) => {
               src={thumbUrl}
             ></LazyLoadImage>
           )}
-          {console.log(isLoaded)}
         </div>
         <div className="modal-footer">
           {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}

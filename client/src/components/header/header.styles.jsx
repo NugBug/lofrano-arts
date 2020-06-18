@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  padding: 30px 0;
+  padding: 25px 0;
 
   @media screen and (max-width: 800px) {
     margin-bottom: 0px;

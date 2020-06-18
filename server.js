@@ -57,6 +57,54 @@ app.post("/admin", (req, res) => {
   }
 });
 
+// app.get("/api/send_email", function (req, res) {
+//   res.set("Content-Type", "application/json");
+
+//   const locals = { userName: req.body.userName };
+//   const messageInfo = {
+//     email: req.body.email,
+//     fromEmail: "info@ingsw.com",
+//     fromName: "Star Wars",
+//     subject: "Checkout this awesome droids",
+//   };
+//   mailer.sendOne("droids", messageInfo, locals);
+
+//   res.send('{"message":"Email sent."}');
+// });
+
+// const mailjet = require("node-mailjet").connect(
+//   "6fdf15fe916f6c5a5176a862edc59a53",
+//   "707f88e95105ac2c2f5907614b3815d5"
+// );
+// const request = mailjet.post("send", { version: "v3.1" }).request({
+//   Messages: [
+//     {
+//       From: {
+//         Email: "joshtanguay@gmail.com",
+//         Name: "Josh",
+//       },
+//       To: [
+//         {
+//           Email: "joshtanguay@gmail.com",
+//           Name: "Josh",
+//         },
+//       ],
+//       Subject: "Greetings from Mailjet.",
+//       TextPart: "My first Mailjet email",
+//       HTMLPart:
+//         "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+//       CustomID: "AppGettingStartedTest",
+//     },
+//   ],
+// });
+// request
+//   .then((result) => {
+//     console.log(result.body);
+//   })
+//   .catch((err) => {
+//     console.log(err.statusCode);
+//   });
+
 app.listen(port, (error) => {
   if (error) throw error;
   console.log("Server running on port " + port);

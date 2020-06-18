@@ -23,7 +23,13 @@ const ImageUpload = () => {
   });
 
   // firebase data upload
-  const firebaseUpload = async (data, displayImage, thumbImage, document) => {
+  const firebaseUpload = async (
+    data,
+    displayImage,
+    thumbImage,
+    originalUrl,
+    document
+  ) => {
     try {
       const docRef = await firestore.collection("collections").doc(document);
       await docRef.update({
@@ -31,6 +37,7 @@ const ImageUpload = () => {
           ...data,
           imageUrl: displayImage,
           thumbUrl: thumbImage,
+          originalUrl: originalUrl,
         }),
       });
     } catch (error) {
@@ -68,6 +75,7 @@ const ImageUpload = () => {
   const handleUpload = async (data, image, document, databaseUpload) => {
     setProgress(1);
 
+    // Image compression config
     const imageOptions = {
       maxSizeMB: 4.0,
       useWebWorker: true,
@@ -80,17 +88,21 @@ const ImageUpload = () => {
       useWebWorker: true,
     };
 
+    // Compress image and return thumbnail and detailed image for display
     const compressedFile = await imageCompression(image, imageOptions);
     const compressThumbnail = await imageCompression(image, thumbnailOptions);
 
+    // Create firestore liseners for both image upload tasks
     const uploadTask1 = storage
       .ref(`/images/${data.name}_display`)
       .put(compressedFile);
     const uploadTask2 = storage
       .ref(`/images/${data.name}_thumb`)
       .put(compressThumbnail);
+    const uploadTask3 = storage.ref(`/images/${data.name}_original`).put(image);
 
-    Promise.all([uploadTask1, uploadTask2])
+    // Wait for tasks to finish, retrieve new image URLs and submit data for firestore upload
+    Promise.all([uploadTask1, uploadTask2, uploadTask3])
       .then(async (tasks) => {
         let imageUrl = await storage
           .ref(`images/${data.name}_display`)
@@ -102,13 +114,19 @@ const ImageUpload = () => {
           .getDownloadURL()
           .then((url) => url);
 
-        return { imageUrl, thumbUrl };
+        let originalUrl = await storage
+          .ref(`/images/${data.name}_original`)
+          .getDownloadURL()
+          .then((url) => url);
+
+        return { imageUrl, thumbUrl, originalUrl };
       })
-      .then(({ imageUrl, thumbUrl }) => {
-        databaseUpload(data, imageUrl, thumbUrl, document);
+      .then(({ imageUrl, thumbUrl, originalUrl }) => {
+        databaseUpload(data, imageUrl, thumbUrl, originalUrl, document);
         setUploading(false);
       });
 
+    // Upload images to firestore
     firestoreUpload(uploadTask1);
     firestoreUpload(uploadTask2);
   };
@@ -117,6 +135,7 @@ const ImageUpload = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setUploading(true);
+    setFile(null);
 
     // Hash function to generate unique art item id
     const hashId = (artName) =>
@@ -130,8 +149,6 @@ const ImageUpload = () => {
     // Map category name to database id
     const categoryName = formData.category;
     const documentID = getDocId(categoryName);
-
-    setFile(null);
 
     // Restructure form data for Firestore upload
     const { name, price, imageUrl, category } = formData;

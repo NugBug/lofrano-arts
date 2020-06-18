@@ -9,6 +9,7 @@ import {
 } from "./redux/user/user.selectors.js";
 import { checkUserSession } from "./redux/user/user.actions.js";
 import { hideCart } from "./redux/cart/cart.actions";
+import Welcome from "./components/welcome/welcome.component";
 import Header from "./components/header/header.component.jsx";
 import Footer from "./components/footer/footer.component.jsx";
 import Spinner from "./components/spinner/spinner.component.jsx";
@@ -39,6 +40,7 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, isAdmin }) => {
   return (
     <div className="page-container">
       <div className="content-wrap">
+        <Welcome />
         <Header />
         <GlobalStyles />
         <ErrorBoundry>

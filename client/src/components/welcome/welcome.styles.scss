@@ -1,0 +1,17 @@
+.welcome-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 13px;
+  padding-top: 5px;
+}
+
+.welcome-message {
+  align-self: center;
+  font-size: small;
+
+  @media screen and (max-width: 800px) {
+    font-size: xx-small;
+    padding-top: 2px;
+  }
+}

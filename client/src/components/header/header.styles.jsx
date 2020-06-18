@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 30px 0;
 
   @media screen and (max-width: 800px) {
@@ -29,10 +29,10 @@ export const LogoContainer = styled(NavLink)`
   }
 
   @media screen and (max-width: 800px) {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: 15px;
   }
 `;

@@ -4,6 +4,10 @@
   justify-content: flex-end;
   height: 13px;
   padding-top: 8px;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 5px;
+  }
 }
 
 .welcome-message {
@@ -12,6 +16,5 @@
 
   @media screen and (max-width: 800px) {
     font-size: xx-small;
-    padding-top: 2px;
   }
 }

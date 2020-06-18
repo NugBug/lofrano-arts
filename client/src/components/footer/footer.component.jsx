@@ -26,7 +26,7 @@ const Footer = () => {
             ></img>
           </a>
         </div>
-        <Link exact to="/privacy">
+        <Link className="terms" exact to="/privacy">
           Terms and Privacy
         </Link>
         <p>

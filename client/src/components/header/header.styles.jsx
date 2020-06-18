@@ -20,6 +20,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LogoContainer = styled(NavLink)`
+  position: absolute;
+  top: 35px;
   height: 100px;
   width: auto;
 
@@ -29,8 +31,8 @@ export const LogoContainer = styled(NavLink)`
   }
 
   @media screen and (max-width: 800px) {
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     position: absolute;
     top: 20px;
     left: 15px;

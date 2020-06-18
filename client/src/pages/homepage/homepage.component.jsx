@@ -24,7 +24,7 @@ const HomePage = () => (
     </Fade>
     <div className="hero-statement">
       <div className="hero-statement-text">
-        <Fade delay={500} duration={1000}>
+        <Fade duration={2000}>
           <p>
             I feel there is a universal flow of energy and creativity that
             connects all of us.
@@ -33,7 +33,7 @@ const HomePage = () => (
           <div className="line-space"></div>
           <hr></hr>
         </Fade>
-        <Fade delay={500} duration={1000}>
+        <Fade duration={2000}>
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>
@@ -47,7 +47,7 @@ const HomePage = () => (
           <div className="line-space"></div>
           <hr></hr>
         </Fade>
-        <Fade delay={500} duration={1500}>
+        <Fade duration={2000}>
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>

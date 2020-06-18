@@ -38,18 +38,19 @@ const CartDropdown = ({
             history.push("/checkout");
             toggleCartHidden();
           }}
+          style={{ padding: "unset", fontSize: "13px" }}
         >
-          GO TO CHECKOUT
+          Edit Cart and Checkout
         </CustomButton>
       ) : (
         <CustomButton
-          style={{ fontSize: "12px" }}
+          style={{ padding: "unset", fontSize: "13px" }}
           onClick={() => {
             history.push("/signin");
             toggleCartHidden();
           }}
         >
-          Sign in to Checkout
+          Sign In To Edit or Checkout
         </CustomButton>
       )}
     </div>

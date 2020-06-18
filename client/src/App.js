@@ -16,6 +16,7 @@ import Spinner from "./components/spinner/spinner.component.jsx";
 import ErrorBoundry from "./components/error-boundry/error-boundry.component.jsx";
 import NotFoundPage from "./components/notFoundPage/notFoundPage.component.jsx";
 import ImageUpload from "./components/imageupload/imageupload.component.jsx";
+import TermsAndPrivacy from "./pages/terms-and-privacy/terms-and-privacy.component";
 
 import { GlobalStyles } from "./global.styles";
 
@@ -54,6 +55,7 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, isAdmin }) => {
               <Route path="/gallery" component={GalleryPage} />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/privacy" component={TermsAndPrivacy} />
               <Route
                 exact
                 path="/checkout"

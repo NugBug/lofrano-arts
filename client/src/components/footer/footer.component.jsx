@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import instagramLogo from "../../assets/Instagram_logo.png";
 
 import "./footer.styles.scss";
@@ -25,7 +26,9 @@ const Footer = () => {
             ></img>
           </a>
         </div>
-        <p>Terms and Privacy</p>
+        <Link exact to="/privacy">
+          Terms and Privacy
+        </Link>
         <p>
           <a href="mailto:lofranoart@gmail.com" rel="noopener noreferrer">
             Contact

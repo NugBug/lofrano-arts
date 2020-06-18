@@ -12,7 +12,7 @@ const Welcome = ({ loggedIn, user }) => {
   return (
     <div className="welcome-container">
       <div className="welcome-message">
-        {user ? `Welcome ${user.displayName}` : null}
+        {user ? `Welcome ${user.name}` : null}
       </div>
     </div>
   );

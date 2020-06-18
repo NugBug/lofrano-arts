@@ -41,6 +41,15 @@ const CheckoutPage = ({ cartItems, total }) => (
     </div>
     <div className="test-warning">
       <h3>
+        We are currently not processing orders at the moment. Please inquire if
+        you are interested in an art piece or contact Lofrano Arts for any
+        questions you may have.
+      </h3>
+      <h3>
+        No credit card information is collected or saved. Payments via Stripe
+        are being tested and in development at the moment.
+      </h3>
+      <h3>
         *Please use the following credit card for testing payment functionality*
       </h3>
       <h3>4242-4242-4242-4242 -- Exp: 01/21 -- CW: 123</h3>

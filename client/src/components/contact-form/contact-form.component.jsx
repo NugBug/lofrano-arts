@@ -17,7 +17,7 @@ const Contact = ({ user }) => {
 
   useEffect(() => {
     if (user) {
-      setName(user.name);
+      setName(user.displayName);
       setEmail(user.email);
     }
   }, [user]);
@@ -99,7 +99,7 @@ const Contact = ({ user }) => {
             className="form-input"
             type="text"
             placeholder="Name"
-            value={user ? `${user.name}` : name}
+            value={user ? `${user.displayName}` : name}
           />
         </div>
         <div>

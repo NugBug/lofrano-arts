@@ -26,11 +26,11 @@ const Footer = () => {
             ></img>
           </a>
         </div>
-        <Link className="terms" exact to="/privacy">
+        <Link className="terms" to="/privacy">
           Terms and Privacy
         </Link>
         <p>
-          <Link className="contact" exact to="/contact">
+          <Link className="contact" to="/contact">
             Contact
           </Link>
         </p>

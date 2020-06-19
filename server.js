@@ -77,8 +77,9 @@ app.post("/contact", (req, res) => {
   let mailOptions = {
     from: data.email,
     to: "joshtanguay@gmail.com",
-    subject: "Contact Form",
-    html: `<p>${data.name}</p>
+    subject: "Lofrano Arts - Contact Form Submission",
+    html: `<p>${data.topic}</p>
+            <p>${data.name}</p>
           <p>${data.email}</p>
           <p>${data.message}</p>`,
   };

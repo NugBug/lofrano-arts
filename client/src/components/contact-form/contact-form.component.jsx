@@ -8,6 +8,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
+  const [topic, setTopic] = useState("");
   const [sent, setSent] = useState(false);
   const [buttonText, setButtonText] = useState("Send Message");
 
@@ -20,6 +21,7 @@ const Contact = () => {
       name: name,
       email: email,
       message: message,
+      topic: topic,
     };
 
     axios
@@ -38,6 +40,7 @@ const Contact = () => {
     setName("");
     setMessage("");
     setEmail("");
+    setTopic("");
     setButtonText("Message Sent");
   };
 
@@ -45,6 +48,24 @@ const Contact = () => {
     <div className="contact-container">
       <form className="contact-form" onSubmit={(e) => formSubmit(e)}>
         <div>
+          <label className="form-input-label" htmlFor="category">
+            Subject
+          </label>
+          <select
+            id="dropdown"
+            name="category"
+            className="form-input"
+            onChange={(e) => setTopic(e.target.value)}
+          >
+            <option defaultValue>Select Category</option>
+            <option value="Inquire About Art Piece">
+              Inquire About Art Piece
+            </option>
+            <option value="Delete Account">Delete Account</option>
+            <option value="General Question">General Question</option>
+            <option value="Privacy Policy">Privacy Policy</option>
+            <option value="Other">Other</option>
+          </select>
           <label className="form-input-label" htmlFor="message-input">
             Your Message
           </label>

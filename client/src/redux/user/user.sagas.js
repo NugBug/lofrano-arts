@@ -19,7 +19,7 @@ import axios from "axios";
 
 import UserActionTypes from "./user.types";
 
-export function* getSnapshotFromUserAuth({ userAuth, additionalData }) {
+export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
     const userRef = yield call(
       createUserProfileDocument,

@@ -1,14 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {
-  selectIsLoggedIn,
-  selectCurrentUser,
-} from "../../redux/user/user.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./welcome.styles.scss";
 
-const Welcome = ({ loggedIn, user }) => {
+const Welcome = ({ user }) => {
   return (
     <div className="welcome-container">
       <div className="welcome-message">
@@ -19,7 +16,6 @@ const Welcome = ({ loggedIn, user }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  loggedIn: selectIsLoggedIn,
   user: selectCurrentUser,
 });
 

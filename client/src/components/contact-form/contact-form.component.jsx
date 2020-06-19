@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selectors.js";
 import axios from "axios";
 import CustomButton from "../custom-button/custom-button.component";
 
 import "./contact-form.styles.scss";
 
-const Contact = () => {
+const Contact = ({ user }) => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
@@ -103,7 +106,7 @@ const Contact = () => {
             type="email"
             placeholder="your@email.com"
             required
-            value={email}
+            value={user ? `${user.name}` : email}
           />
         </div>
         <div className="button-container">
@@ -116,4 +119,8 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+const mapStateToProps = createStructuredSelector({
+  user: selectCurrentUser,
+});
+
+export default connect(mapStateToProps)(Contact);

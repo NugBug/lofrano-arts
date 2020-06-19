@@ -17,11 +17,18 @@ const CollectionPage = ({ collection }) => {
       ) : (
         <div className="collection-page">
           <h1 className="title">{collection.title.toUpperCase()}</h1>
-          <div className="items">
-            {collection.items.map((item) => (
-              <CollectionItem key={item.id} item={item} />
-            ))}
-          </div>
+          {collection.items.length === 0 ? (
+            <div className="placeholder-container">
+              <h2 className="collection-placeholder">More to come</h2>
+              <h2 className="collection-placeholder">Check back soon</h2>
+            </div>
+          ) : (
+            <div className="items">
+              {collection.items.map((item) => (
+                <CollectionItem key={item.id} item={item} />
+              ))}
+            </div>
+          )}
           <div className="back-button">
             <Link className="back-arrow" to="/gallery">
               &#10094;&nbsp;Back

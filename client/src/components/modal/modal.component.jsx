@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
@@ -65,14 +66,16 @@ const Modal = ({ show, close, addItem, item }) => {
               Add To Cart
             </CustomButton>
           ) : (
-            <CustomButton
-              className="btn-purchase"
-              onClick={() =>
-                window.location.assign("mailto:lofranoart@gmail.com")
-              }
-            >
-              Inquire
-            </CustomButton>
+            <Link exact to="/contact">
+              <CustomButton
+                className="btn-purchase"
+                onClick={() =>
+                  window.location.assign("mailto:lofranoart@gmail.com")
+                }
+              >
+                Inquire
+              </CustomButton>
+            </Link>
           )}
         </div>
       </div>

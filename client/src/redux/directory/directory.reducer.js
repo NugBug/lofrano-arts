@@ -3,38 +3,39 @@ const INITIAL_STATE = {
     {
       title: "sculptures",
       imageUrl:
-        "https://cdn20.pamono.com/p/g/5/6/561199_0ggih44unq/art-deco-bronze-sculpture-by-g-ninin-1920s-2.jpg",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FNegative%20Cubes_thumb?alt=media&token=d9bd4ce6-4f24-4bb3-827f-c86ca47163a1",
       id: 1,
       linkUrl: "gallery/sculptures",
     },
     {
       title: "photography",
       imageUrl:
-        "https://iso.500px.com/wp-content/uploads/2016/10/stock-photo-159358357.jpg",
+        "https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-15/e35/14726463_225276121223510_283839399156776960_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=uNZ7FdaArHYAX8KJ_n2&oh=b5864821f0ae6cc3c923583c9bebbddf&oe=5F17F7EA",
       id: 2,
       linkUrl: "/gallery/photography",
     },
     {
-      title: "paintings",
+      title: "musings",
       imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/716tsQsStCL._SX500_.jpg",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FSculpture%20Work_display?alt=media&token=7e4954f7-f13c-47a4-9d45-37b5df041d59",
       id: 3,
-      linkUrl: "/gallery/paintings",
+      linkUrl: "/gallery/musings",
     },
     {
-      title: "sketches",
-      imageUrl: "https://i.ytimg.com/vi/Q_PZ09Qlssw/maxresdefault.jpg",
+      title: "drawings",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute_display?alt=media&token=feee41da-0676-4acc-b1c9-e9baea47a986",
       size: "large",
       id: 4,
-      linkUrl: "/gallery/sketches",
+      linkUrl: "/gallery/drawings",
     },
     {
-      title: "prints",
+      title: "digital art",
       imageUrl:
-        "https://ctl.s6img.com/society6/img/lE7CIxh0oMhqbJbOv5B6Wb4RvmA/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/e10314df891140139e659371eb9cc524/~~/beach-mood1217848-prints.jpg",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FCable%20Car_display?alt=media&token=14574d19-94fd-4329-9f96-1d73ee92c8b2",
       size: "large",
       id: 5,
-      linkUrl: "/gallery/prints",
+      linkUrl: "/gallery/digital%20art",
     },
   ],
 };

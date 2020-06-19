@@ -1,9 +1,9 @@
 const mapCollectionsToCategory = {
   Sculptures: "4mFBpLBMtNUa7xN2C5vN",
-  Sketches: "8rDENGVXRYeY0SV5nsjA",
-  Paintings: "9u6LyU51y0GBrjxFwAtK",
+  Drawings: "8rDENGVXRYeY0SV5nsjA",
+  Musings: "9u6LyU51y0GBrjxFwAtK",
   Photography: "Xeni4dQg0iusQOa80ws2",
-  Prints: "aSfVVMcGrwlApClvcule",
+  DigitalArt: "aSfVVMcGrwlApClvcule",
 };
 
 export const getDocId = (categoryName) => {

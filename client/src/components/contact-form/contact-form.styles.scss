@@ -1,0 +1,61 @@
+$sub-color: rgb(58, 58, 58);
+$main-color: black;
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}
+
+.contact-container {
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 150px;
+  }
+}
+
+.contact-form {
+  width: 50%;
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+  }
+}
+
+.form-input {
+  background: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: $sub-color;
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $sub-color;
+  margin: 25px 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-input-label {
+  color: $sub-color;
+  font-size: 22px;
+  font-weight: bolder;
+  pointer-events: none;
+
+  @media screen and (max-width: 800px) {
+    font-size: 16px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

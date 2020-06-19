@@ -74,6 +74,7 @@ const ImageUpload = () => {
   // Compress image and gather data for firebase storage and database upload
   const handleUpload = async (data, image, document, databaseUpload) => {
     setProgress(1);
+    setUploading(true);
 
     // Image compression config
     const imageOptions = {
@@ -134,7 +135,6 @@ const ImageUpload = () => {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUploading(true);
     setFile(null);
 
     // Hash function to generate unique art item id

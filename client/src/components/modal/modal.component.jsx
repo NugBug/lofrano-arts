@@ -66,7 +66,7 @@ const Modal = ({ show, close, addItem, item }) => {
               Add To Cart
             </CustomButton>
           ) : (
-            <Link exact to="/contact">
+            <Link to="/contact">
               <CustomButton className="btn-purchase">Inquire</CustomButton>
             </Link>
           )}

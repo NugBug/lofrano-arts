@@ -49,29 +49,6 @@ const TermsAndPrivacy = () => {
         <hr></hr>
         <div className="line-space"></div>
         <div className="line-space"></div>
-        <h2>Terms and Conditions</h2>
-        <p>
-          You agree to indemnify, defend and hold Lofrano Arts, its affiliates,
-          employees, and applicable third parties harmless from and against any
-          and all third party claims, liability, loss, and expense (including
-          damage awards, settlement amounts, and reasonable legal fees), brought
-          against any Indemnified Person(s), arising out of, related to or which
-          may arise from Your use of the Lofrano Arts.
-        </p>
-        <p>
-          Lofrano Arts reserves the right to delete any user account without
-          notice.
-        </p>
-        <p>All sales are final upon completion of order fulfillment.</p>{" "}
-        <p>
-          If you have any questions regarding these terms and conditions, please
-          contact Lofrano Arts.
-        </p>
-        <div className="line-space"></div>
-        <div className="line-space"></div>
-        <hr></hr>
-        <div className="line-space"></div>
-        <div className="line-space"></div>
         <h2>Modification of Terms and Policy</h2>
         <p>
           Lofrano Arts may at any time modify the terms, conditions and policies

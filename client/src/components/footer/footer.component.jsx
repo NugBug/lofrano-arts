@@ -30,9 +30,9 @@ const Footer = () => {
           Terms and Privacy
         </Link>
         <p>
-          <a href="mailto:lofranoart@gmail.com" rel="noopener noreferrer">
+          <Link className="contact" exact to="/contact">
             Contact
-          </a>
+          </Link>
         </p>
       </div>
       <div className="footer-bottom">

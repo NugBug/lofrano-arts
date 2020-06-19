@@ -63,7 +63,7 @@ const HomePage = () => (
     <Fade duration={1500}>
       <div className="studio-sculpture">
         <div className="button-container">
-          <Link className="btn" to="/gallery">
+          <Link className="explore-button" to="/gallery">
             Explore
           </Link>
         </div>

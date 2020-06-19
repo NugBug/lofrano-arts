@@ -17,6 +17,7 @@ import ErrorBoundry from "./components/error-boundry/error-boundry.component.jsx
 import NotFoundPage from "./components/notFoundPage/notFoundPage.component.jsx";
 import ImageUpload from "./components/imageupload/imageupload.component.jsx";
 import TermsAndPrivacy from "./pages/terms-and-privacy/terms-and-privacy.component";
+import ContactPage from "./pages/contact/contactpage.component.jsx";
 
 import { GlobalStyles } from "./global.styles";
 
@@ -55,6 +56,7 @@ const App = ({ checkUserSession, hideCart, userLoggedIn, isAdmin }) => {
               <Route path="/gallery" component={GalleryPage} />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/contact" component={ContactPage} />
               <Route exact path="/privacy" component={TermsAndPrivacy} />
               <Route
                 exact

@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const enforce = require("express-sslify");
+const nodemailer = require("nodemailer");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -57,20 +58,42 @@ app.post("/admin", (req, res) => {
   }
 });
 
-// app.get("/api/send_email", function (req, res) {
-//   res.set("Content-Type", "application/json");
+app.post("/contact", (req, res) => {
+  var data = req.body;
 
-//   const locals = { userName: req.body.userName };
-//   const messageInfo = {
-//     email: req.body.email,
-//     fromEmail: "James@lofranoarts.com",
-//     fromName: "James Lofrano",
-//     subject: "Welcome To Lofrano Arts",
-//   };
-//   mailer.sendOne("droids", messageInfo, locals);
+  let smtpTransport = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    auth: {
+      type: "OAuth2",
+      user: process.env.GOOGLE_USER,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+      accessToken: process.env.GOOGLE_ACCESS_TOKEN,
+    },
+  });
 
-//   res.send('{"message":"Email sent."}');
-// });
+  let mailOptions = {
+    from: data.email,
+    to: "joshtanguay@gmail.com",
+    subject: "Contact Form",
+    html: `<p>${data.name}</p>
+          <p>${data.email}</p>
+          <p>${data.message}</p>`,
+  };
+
+  smtpTransport.sendMail(mailOptions, (error, response) => {
+    if (error) {
+      res.send(error);
+      console.log(error);
+    } else {
+      res.send("Success");
+      console.log(response);
+    }
+    smtpTransport.close();
+  });
+});
 
 app.listen(port, (error) => {
   if (error) throw error;

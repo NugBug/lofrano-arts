@@ -76,14 +76,18 @@
     }
 
     @media screen and (max-width: 800px) {
-      font-size: 21px;
-      padding: 50px;
+      font-size: 18px;
+      padding: 30px;
       letter-spacing: 2px;
     }
   }
 }
 
-.btn {
+.button-container {
+  display: flex;
+}
+
+.explore-button {
   position: relative;
   color: black;
   font-size: 25px;
@@ -94,7 +98,7 @@
   overflow: hidden;
   transition: 1s all ease;
 }
-.btn::before {
+.explore-button::before {
   background: #000000;
   content: "";
   position: absolute;
@@ -107,11 +111,11 @@
   height: 100%;
 }
 
-.btn:hover::before {
+.explore-button:hover::before {
   width: 100%;
 }
 
-.btn:hover {
+.explore-button:hover {
   color: white;
   background: black;
 }

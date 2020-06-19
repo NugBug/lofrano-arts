@@ -67,14 +67,7 @@ const Modal = ({ show, close, addItem, item }) => {
             </CustomButton>
           ) : (
             <Link exact to="/contact">
-              <CustomButton
-                className="btn-purchase"
-                onClick={() =>
-                  window.location.assign("mailto:lofranoart@gmail.com")
-                }
-              >
-                Inquire
-              </CustomButton>
+              <CustomButton className="btn-purchase">Inquire</CustomButton>
             </Link>
           )}
         </div>

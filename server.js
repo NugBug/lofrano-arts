@@ -76,12 +76,12 @@ app.post("/contact", (req, res) => {
 
   let mailOptions = {
     from: data.email,
-    to: "joshtanguay@gmail.com",
+    to: "lofranoart@gmail.com",
     subject: "Lofrano Arts - Contact Form Submission",
-    html: `<p>${data.topic}</p>
-            <p>${data.name}</p>
-          <p>${data.email}</p>
-          <p>${data.message}</p>`,
+    html: `<p>Topic: ${data.topic}</p>
+            <p>Name of User: ${data.name}</p>
+          <p>User Email: ${data.email}</p>
+          <p>Message: ${data.message}</p>`,
   };
 
   smtpTransport.sendMail(mailOptions, (error, response) => {

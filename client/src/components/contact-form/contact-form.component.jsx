@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors.js";
@@ -14,6 +14,13 @@ const Contact = ({ user }) => {
   const [topic, setTopic] = useState("");
   const [sent, setSent] = useState(false);
   const [buttonText, setButtonText] = useState("Send Message");
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }, [user]);
 
   const formSubmit = (e) => {
     e.preventDefault();

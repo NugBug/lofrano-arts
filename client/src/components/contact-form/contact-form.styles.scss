@@ -58,4 +58,8 @@ $main-color: black;
 .button-container {
   display: flex;
   justify-content: center;
+
+  .button {
+    padding-top: unset;
+  }
 }

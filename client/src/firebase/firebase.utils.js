@@ -6,7 +6,7 @@ import "firebase/functions";
 
 const config = {
   apiKey: "AIzaSyBfdUz5YyYMZdkElYp752ew7ccSwuEKV1s",
-  authDomain: "lofrano-arts.firebaseapp.com",
+  authDomain: "http://www.lofranoarts.com/*",
   databaseURL: "https://lofrano-arts.firebaseio.com",
   projectId: "lofrano-arts",
   storageBucket: "lofrano-arts.appspot.com",

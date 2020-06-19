@@ -92,7 +92,7 @@ const Contact = ({ user }) => {
             className="form-input"
             type="text"
             placeholder="Name"
-            value={name}
+            value={user ? `${user.name}` : name}
           />
         </div>
         <div>
@@ -106,7 +106,7 @@ const Contact = ({ user }) => {
             type="email"
             placeholder="your@email.com"
             required
-            value={user ? `${user.name}` : email}
+            value={user ? `${user.email}` : email}
           />
         </div>
         <div className="button-container">

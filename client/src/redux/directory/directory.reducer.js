@@ -17,14 +17,14 @@ const INITIAL_STATE = {
     {
       title: "musings",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FSculpture%20Work_display?alt=media&token=7e4954f7-f13c-47a4-9d45-37b5df041d59",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FSculpture%20Work_thumb?alt=media&token=1f2a8c0b-fec6-4883-a959-6e8c0b17f829",
       id: 3,
       linkUrl: "/gallery/musings",
     },
     {
       title: "drawings",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute_display?alt=media&token=feee41da-0676-4acc-b1c9-e9baea47a986",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute_thumb?alt=media&token=5a4be8b3-4f30-46c7-8146-3b53c2cc671f",
       size: "large",
       id: 4,
       linkUrl: "/gallery/drawings",

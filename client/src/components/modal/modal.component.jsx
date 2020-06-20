@@ -36,7 +36,7 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
         </div>
         {show ? (
-          <LazyLoadImage
+          <img
             onLoad={() => {
               setIsLoaded(true);
             }}
@@ -44,7 +44,7 @@ const Modal = ({ show, close, addItem, item }) => {
             alt=""
             style={{ opacity: isLoaded ? 1 : 0 }}
             src={imageUrl}
-          ></LazyLoadImage>
+          ></img>
         ) : (
           <LazyLoadImage
             onLoad={() => {

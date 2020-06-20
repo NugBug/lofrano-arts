@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import "./modal.styles.scss";
 
@@ -46,14 +45,14 @@ const Modal = ({ show, close, addItem, item }) => {
             src={imageUrl}
           ></img>
         ) : (
-          <LazyLoadImage
+          <img
             onLoad={() => {
               setIsLoaded(true);
             }}
             alt={""}
             className="modal-image thumb"
             src={thumbUrl}
-          ></LazyLoadImage>
+          ></img>
         )}
       </div>
       <div className="modal-footer">

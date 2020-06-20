@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Contact from "../../components/contact-form/contact-form.component";
 
 const ContactPage = () => {

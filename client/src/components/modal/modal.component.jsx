@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
-  const { name, price, imageUrl, forSale, thumbUrl } = item;
+  const { name, price, imageUrl, forSale } = item;
 
   return (
     <div

@@ -43,21 +43,14 @@ const CollectionItem = ({ item, addItem }) => {
           <div></div>
           <div></div>
         </div>
-        <img
-          className="image thumb"
-          alt={""}
-          style={{ visibility: isLoaded ? "hidden" : "visible " }}
-        />
-        <img
-          onLoad={() => {
-            setIsLoaded(true);
-            console.log("Grid image: ", thumbUrl);
-          }}
-          className="image full"
-          style={{ opacity: isLoaded ? 1 : 0 }}
-          alt={name}
-          src={thumbUrl}
-        />
+        <a href={thumbUrl}>
+          <img
+            className="image thumb"
+            alt={""}
+            style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          />
+          <img className="image full" alt={name} src={thumbUrl} />
+        </a>
       </div>
       <div className="collection-footer">
         <span className="name">{name}</span>

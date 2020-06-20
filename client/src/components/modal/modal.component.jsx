@@ -38,7 +38,6 @@ const Modal = ({ show, close, addItem, item }) => {
           onLoad={() => {
             setIsLoaded(true);
           }}
-          style={{ opacity: isLoaded ? 1 : 0 }}
           className="modal-image full"
           alt={name}
           src={imageUrl}

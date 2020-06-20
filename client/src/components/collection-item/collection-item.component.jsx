@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
@@ -48,7 +47,7 @@ const CollectionItem = ({ item, addItem }) => {
           alt={""}
           style={{ visibility: isLoaded ? "hidden" : "visible " }}
         />
-        <LazyLoadImage
+        <img
           onLoad={() => {
             setIsLoaded(true);
           }}

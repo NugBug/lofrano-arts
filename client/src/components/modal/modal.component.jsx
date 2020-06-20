@@ -25,13 +25,21 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
+        {/* <div
+          className="modal-loader"
+          style={{ visibility: isLoaded ? "hidden" : "visible " }}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div> */}
         <img
           onLoad={() => {
             setIsLoaded(true);
           }}
           className="modal-image full"
-          alt="Loading..."
-          style={{ opacity: isLoaded ? 1 : 0 }}
+          alt=""
           src={imageUrl}
         ></img>
       </div>

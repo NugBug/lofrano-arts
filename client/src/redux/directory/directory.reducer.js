@@ -32,7 +32,7 @@ const INITIAL_STATE = {
     {
       title: "digital art",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FCable%20Car_thumb?alt=media&token=2c1c4f5d-73b4-45b3-9cd4-6912e269ae34",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FCable%20Car_display?alt=media&token=da2fbb3d-5543-49ee-8a43-07698fb45e76",
       size: "large",
       id: 5,
       linkUrl: "/gallery/digital%20art",

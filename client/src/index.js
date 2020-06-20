@@ -9,13 +9,15 @@ import { store, persistor } from "./redux/store.js";
 import HttpsRedirect from "react-https-redirect";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <PersistGate persistor={persistor}>
-        <ScrollToTop />
-        <App />
-      </PersistGate>
-    </BrowserRouter>
-  </Provider>,
+  <HttpsRedirect>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PersistGate persistor={persistor}>
+          <ScrollToTop />
+          <App />
+        </PersistGate>
+      </BrowserRouter>
+    </Provider>
+  </HttpsRedirect>,
   document.getElementById("root")
 );

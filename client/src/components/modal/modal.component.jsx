@@ -52,9 +52,9 @@ const Modal = ({ show, close, addItem, item }) => {
             Add To Cart
           </CustomButton>
         ) : (
-          <Link to="/contact">
-            <CustomButton className="btn-purchase">Inquire</CustomButton>
-          </Link>
+          <CustomButton className="btn-purchase">
+            <Link to="/contact">Inquire</Link>
+          </CustomButton>
         )}
       </div>
     </div>

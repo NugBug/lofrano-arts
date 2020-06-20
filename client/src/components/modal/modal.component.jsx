@@ -29,7 +29,7 @@ const Modal = ({ show, close, addItem, item }) => {
       <div className="modal-body" onClick={close}>
         <div
           className="modal-loader"
-          style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          //   style={{ visibility: isLoaded ? "hidden" : "visible " }}
         >
           <div></div>
           <div></div>

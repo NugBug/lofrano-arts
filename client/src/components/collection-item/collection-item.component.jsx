@@ -27,12 +27,12 @@ const CollectionItem = ({ item, addItem }) => {
 
   return (
     <div className={`${forSale ? "for-sale" : ""} collection-item`}>
-      <Modal
+      {/* <Modal
         className="modal"
         item={item}
         show={isShowing}
         close={() => setIsShowing(false)}
-      ></Modal>
+      ></Modal> */}
       <div onClick={() => setIsShowing(true)} className="image-container">
         <div
           className="image-loader"

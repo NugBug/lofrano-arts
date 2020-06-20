@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
@@ -32,7 +33,12 @@ const CollectionItem = ({ item, addItem }) => {
         show={isShowing}
         close={() => setIsShowing(false)}
       ></Modal>
-      <div onClick={() => setIsShowing(true)} className="image-container">
+      <div
+        onClick={() => {
+          isLoaded ? setIsShowing(true) : null;
+        }}
+        className="image-container"
+      >
         <div
           className="image-loader"
           style={{ visibility: isLoaded ? "hidden" : "visible " }}
@@ -47,7 +53,7 @@ const CollectionItem = ({ item, addItem }) => {
           alt={""}
           style={{ visibility: isLoaded ? "hidden" : "visible " }}
         />
-        <img
+        <LazyLoadImage
           onLoad={() => {
             setIsLoaded(true);
           }}

@@ -49,7 +49,7 @@ const CollectionItem = ({ item, addItem }) => {
             alt={""}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
-          <LazyLoadImage
+          <img
             onLoad={() => {
               setIsLoaded(true);
             }}

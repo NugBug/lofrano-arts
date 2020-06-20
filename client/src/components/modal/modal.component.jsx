@@ -40,23 +40,21 @@ const Modal = ({ show, close, addItem, item }) => {
             <img
               onLoad={() => {
                 setIsLoaded(true);
-                console.log("imageUrl: ", imageUrl);
               }}
               className="modal-image full"
-              alt={""}
+              alt={"Loading Image"}
               style={{ opacity: isLoaded ? 1 : 0 }}
               src={imageUrl}
             ></img>
           ) : (
-            <img
+            <LazyLoadImage
               onLoad={() => {
                 setIsLoaded(true);
-                console.log("ThumbUrl: ", thumbUrl);
               }}
               alt={""}
               className="modal-image thumb"
               src={thumbUrl}
-            ></img>
+            ></LazyLoadImage>
           )}
         </div>
         <div className="modal-footer">

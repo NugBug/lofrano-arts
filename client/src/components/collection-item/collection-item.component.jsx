@@ -43,14 +43,22 @@ const CollectionItem = ({ item, addItem }) => {
           <div></div>
           <div></div>
         </div>
-        <a href={thumbUrl}>
+        <React.Fragment>
           <img
             className="image thumb"
             alt={""}
             style={{ visibility: isLoaded ? "hidden" : "visible " }}
           />
-          <img className="image full" alt={name} src={thumbUrl} />
-        </a>
+          <LazyLoadImage
+            onLoad={() => {
+              setIsLoaded(true);
+            }}
+            className="image full"
+            style={{ opacity: isLoaded ? 1 : 0 }}
+            alt={name}
+            src={thumbUrl}
+          />
+        </React.Fragment>
       </div>
       <div className="collection-footer">
         <span className="name">{name}</span>

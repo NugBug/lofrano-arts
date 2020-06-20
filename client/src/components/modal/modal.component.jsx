@@ -7,7 +7,7 @@ import { addItem } from "../../redux/cart/cart.actions";
 import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
-  const { name, price, imageUrl, forSale, thumbUrl } = item;
+  const { name, price, imageUrl, forSale } = item;
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (

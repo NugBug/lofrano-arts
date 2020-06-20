@@ -27,22 +27,22 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
-        <div
+        {/* <div
           className="modal-loader"
-          //   style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          style={{ visibility: isLoaded ? "hidden" : "visible " }}
         >
           <div></div>
           <div></div>
           <div></div>
           <div></div>
-        </div>
+        </div> */}
         <LazyLoadImage
           placeholderSrc={thumbUrl}
           effect="blur"
           className="modal-image full"
           alt={name}
           src={imageUrl}
-          afterLoad={() => setIsLoaded(true)}
+          // afterLoad={() => setIsLoaded(true)}
         />
       </div>
       <div className="modal-footer">

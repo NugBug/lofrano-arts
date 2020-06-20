@@ -35,7 +35,7 @@ const CollectionItem = ({ item, addItem }) => {
       ></Modal>
       <div
         onClick={() => {
-          isLoaded ? setIsShowing(true) : null;
+          setIsShowing(true);
         }}
         className="image-container"
       >

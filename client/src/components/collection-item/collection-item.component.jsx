@@ -43,22 +43,20 @@ const CollectionItem = ({ item, addItem }) => {
           <div></div>
           <div></div>
         </div>
-        <React.Fragment>
-          <img
-            className="image thumb"
-            alt={""}
-            style={{ visibility: isLoaded ? "hidden" : "visible " }}
-          />
-          <img
-            onLoad={() => {
-              setIsLoaded(true);
-            }}
-            className="image full"
-            style={{ opacity: isLoaded ? 1 : 0 }}
-            alt={name}
-            src={thumbUrl}
-          />
-        </React.Fragment>
+        <img
+          className="image thumb"
+          alt={""}
+          style={{ visibility: isLoaded ? "hidden" : "visible " }}
+        />
+        <img
+          onLoad={() => {
+            setIsLoaded(true);
+          }}
+          className="image full"
+          style={{ opacity: isLoaded ? 1 : 0 }}
+          alt={name}
+          src={thumbUrl}
+        />
       </div>
       <div className="collection-footer">
         <span className="name">{name}</span>

@@ -10,16 +10,14 @@ import * as serviceWorker from "./serviceWorker";
 import HttpsRedirect from "react-https-redirect";
 
 ReactDOM.render(
-  <HttpsRedirect>
-    <Provider store={store}>
-      <BrowserRouter>
-        <PersistGate persistor={persistor}>
-          <ScrollToTop />
-          <App />
-        </PersistGate>
-      </BrowserRouter>
-    </Provider>
-  </HttpsRedirect>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <PersistGate persistor={persistor}>
+        <ScrollToTop />
+        <App />
+      </PersistGate>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

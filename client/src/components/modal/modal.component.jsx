@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
   const { name, price, imageUrl, forSale } = item;
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div
@@ -35,9 +35,9 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
         </div> */}
         <img
-          onLoad={() => {
-            setIsLoaded(true);
-          }}
+          // onLoad={() => {
+          //   setIsLoaded(true);
+          // }}
           className="modal-image full"
           alt=""
           src={imageUrl}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import LazyLoad from "react-lazyload";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component.jsx";
@@ -48,20 +48,17 @@ const CollectionItem = ({ item, addItem }) => {
           <div></div>
           <div></div>
         </div>
-        <img
-          className="image thumb"
-          alt={""}
-          style={{ visibility: isLoaded ? "hidden" : "visible " }}
-        />
-        <img
-          onLoad={() => {
-            setIsLoaded(true);
-          }}
-          className="image full"
-          style={{ opacity: isLoaded ? 1 : 0 }}
-          alt={name}
-          src={thumbUrl}
-        />
+        <LazyLoad once={true}>
+          <img
+            onLoad={() => {
+              setIsLoaded(true);
+            }}
+            className="image full"
+            style={{ opacity: isLoaded ? 1 : 0 }}
+            alt={name}
+            src={thumbUrl}
+          />
+        </LazyLoad>
       </div>
       <div className="collection-footer">
         <span className="name">{name}</span>

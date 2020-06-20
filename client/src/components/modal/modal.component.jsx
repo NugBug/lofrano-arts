@@ -37,14 +37,12 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
         </div>
         <LazyLoadImage
-          onLoad={() => {
-            setIsLoaded(true);
-          }}
           placeholderSrc={thumbUrl}
           effect="blur"
           className="modal-image full"
           alt={name}
           src={imageUrl}
+          afterLoad={() => setIsLoaded(true)}
         />
       </div>
       <div className="modal-footer">

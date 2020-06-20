@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "react-lazy-load-image-component/src/effects/opacity.css";
 
 import "./menu-item.styles.scss";
 

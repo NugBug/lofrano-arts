@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
   const { name, price, imageUrl, forSale } = item;
-  // const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div
@@ -25,7 +25,7 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
-        {/* <div
+        <div
           className="modal-loader"
           style={{ visibility: isLoaded ? "hidden" : "visible " }}
         >
@@ -33,15 +33,17 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
           <div></div>
           <div></div>
-        </div> */}
+        </div>
+
         <img
-          // onLoad={() => {
-          //   setIsLoaded(true);
-          // }}
+          onLoad={() => {
+            setIsLoaded(true);
+          }}
+          style={{ opacity: isLoaded ? 1 : 0 }}
           className="modal-image full"
-          alt=""
+          alt={name}
           src={imageUrl}
-        ></img>
+        />
       </div>
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}

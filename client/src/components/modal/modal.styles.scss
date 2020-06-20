@@ -34,7 +34,7 @@
 
 .modal-body {
   height: 100%;
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
   background-color: rgba(46, 46, 46, 0.92);
   display: flex;
@@ -58,8 +58,8 @@
 }
 
 .modal-image {
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
 }
 
 .thumb {
@@ -143,59 +143,61 @@
   font-weight: bold;
 }
 
-// Modal Loader
-// .modal-loader {
-//   display: inline-block;
-//   position: absolute;
-//   width: 80px;
-//   height: 80px;
-// }
-// .modal-loader div {
-//   position: absolute;
-//   top: 33px;
-//   width: 13px;
-//   height: 13px;
-//   border-radius: 50%;
-//   background: #fff;
-//   animation-timing-function: cubic-bezier(0, 1, 1, 0);
-// }
-// .modal-loader div:nth-child(1) {
-//   left: 8px;
-//   animation: modal-loader1 0.6s infinite;
-// }
-// .modal-loader div:nth-child(2) {
-//   left: 8px;
-//   animation: modal-loader2 0.6s infinite;
-// }
-// .modal-loader div:nth-child(3) {
-//   left: 32px;
-//   animation: modal-loader2 0.6s infinite;
-// }
-// .modal-loader div:nth-child(4) {
-//   left: 56px;
-//   animation: modal-loader3 0.6s infinite;
-// }
-// @keyframes modal-loader1 {
-//   0% {
-//     transform: scale(0);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-// @keyframes modal-loader3 {
-//   0% {
-//     transform: scale(1);
-//   }
-//   100% {
-//     transform: scale(0);
-//   }
-// }
-// @keyframes modal-loader2 {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   100% {
-//     transform: translate(24px, 0);
-//   }
-// }
+.modal-loader {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.modal-loader div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.modal-loader div:nth-child(1) {
+  left: 8px;
+  animation: modal-loader1 0.6s infinite;
+}
+.modal-loader div:nth-child(2) {
+  left: 8px;
+  animation: modal-loader2 0.6s infinite;
+}
+.modal-loader div:nth-child(3) {
+  left: 32px;
+  animation: modal-loader2 0.6s infinite;
+}
+.modal-loader div:nth-child(4) {
+  left: 56px;
+  animation: modal-loader3 0.6s infinite;
+}
+@keyframes modal-loader1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes modal-loader3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes modal-loader2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}

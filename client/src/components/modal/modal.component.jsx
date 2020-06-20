@@ -40,6 +40,7 @@ const Modal = ({ show, close, addItem, item }) => {
             <img
               onLoad={() => {
                 setIsLoaded(true);
+                console.log("imageUrl: ", imageUrl);
               }}
               className="modal-image full"
               alt={""}
@@ -50,6 +51,7 @@ const Modal = ({ show, close, addItem, item }) => {
             <img
               onLoad={() => {
                 setIsLoaded(true);
+                console.log("ThumbUrl: ", thumbUrl);
               }}
               alt={""}
               className="modal-image thumb"

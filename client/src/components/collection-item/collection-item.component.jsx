@@ -51,6 +51,7 @@ const CollectionItem = ({ item, addItem }) => {
         <img
           onLoad={() => {
             setIsLoaded(true);
+            console.log("Grid image: ", thumbUrl);
           }}
           className="image full"
           style={{ opacity: isLoaded ? 1 : 0 }}

@@ -1,7 +1,6 @@
 .modal-wrapper {
   border: 1px solid #d0cccc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-
   transition: all 0.8s;
   display: flex;
   flex-direction: column;
@@ -63,8 +62,8 @@
   margin: auto;
 
   @media screen and (max-width: 800px) {
+    max-height: auto;
     width: 100%;
-    max-height: unset;
   }
 }
 

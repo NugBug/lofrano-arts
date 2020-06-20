@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import "./modal.styles.scss";
 
@@ -35,15 +34,17 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
           <div></div>
         </div>
-        <LazyLoadImage
-          onLoad={() => {
-            setIsLoaded(true);
-          }}
-          className="modal-image full"
-          alt=""
-          style={{ opacity: isLoaded ? 1 : 0 }}
-          src={imageUrl}
-        ></LazyLoadImage>
+        {show ? (
+          <img
+            onLoad={() => {
+              setIsLoaded(true);
+            }}
+            className="modal-image full"
+            alt=""
+            style={{ opacity: isLoaded ? 1 : 0 }}
+            src={imageUrl}
+          ></img>
+        ) : null}
       </div>
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}

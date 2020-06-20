@@ -34,17 +34,15 @@ const Modal = ({ show, close, addItem, item }) => {
           <div></div>
           <div></div>
         </div>
-        {show ? (
-          <img
-            onLoad={() => {
-              setIsLoaded(true);
-            }}
-            style={{ opacity: isLoaded ? 1 : 0 }}
-            className="modal-image full"
-            alt={name}
-            src={imageUrl}
-          />
-        ) : null}
+        <img
+          onLoad={() => {
+            setIsLoaded(true);
+          }}
+          style={{ opacity: isLoaded ? 1 : 0 }}
+          className="modal-image full"
+          alt={name}
+          src={imageUrl}
+        />
       </div>
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}

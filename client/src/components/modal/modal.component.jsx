@@ -4,11 +4,12 @@ import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
-  const { name, price, imageUrl, forSale } = item;
+  const { name, price, imageUrl, forSale, thumbUrl } = item;
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -39,7 +40,8 @@ const Modal = ({ show, close, addItem, item }) => {
           onLoad={() => {
             setIsLoaded(true);
           }}
-          effect="opacity"
+          placeholderSrc={thumbUrl}
+          effect="blur"
           className="modal-image full"
           alt={name}
           src={imageUrl}

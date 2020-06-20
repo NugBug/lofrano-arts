@@ -32,16 +32,6 @@
   padding: 0;
 }
 
-.modal-body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-color: rgba(46, 46, 46, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .loading {
   position: fixed;
   top: 40%;
@@ -57,14 +47,21 @@
   }
 }
 
-.modal-image {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
+.modal-body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(46, 46, 46, 0.92);
+  display: inline-block;
+  text-align: center;
 }
 
-.thumb {
-  filter: blur(15px);
+.lazy-load-image-background {
+  height: 100%;
+  vertical-align: bottom;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-footer {
@@ -130,80 +127,8 @@
   }
 }
 
-.back-drop {
-  background-color: rgba(48, 49, 48, 0.42);
-  height: 100%;
-  position: fixed;
-  transition: all 1.3s;
-  width: 100%;
-}
-
 .open-modal-btn {
   margin: 15px;
   padding: 10px;
   font-weight: bold;
-}
-
-.modal-loader {
-  display: inline-block;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  width: 80px;
-  height: 80px;
-
-  @media screen and (max-width: 800px) {
-    top: 42%;
-    left: 42%;
-  }
-}
-
-.modal-loader div {
-  position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #fff;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
-.modal-loader div:nth-child(1) {
-  left: 8px;
-  animation: modal-loader1 0.6s infinite;
-}
-.modal-loader div:nth-child(2) {
-  left: 8px;
-  animation: modal-loader2 0.6s infinite;
-}
-.modal-loader div:nth-child(3) {
-  left: 32px;
-  animation: modal-loader2 0.6s infinite;
-}
-.modal-loader div:nth-child(4) {
-  left: 56px;
-  animation: modal-loader3 0.6s infinite;
-}
-@keyframes modal-loader1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes modal-loader3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes modal-loader2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
 }

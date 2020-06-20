@@ -10,7 +10,6 @@ import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
   const { name, price, imageUrl, forSale, thumbUrl } = item;
-  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div
@@ -27,22 +26,15 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
-        {/* <div
-          className="modal-loader"
-          style={{ visibility: isLoaded ? "hidden" : "visible " }}
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div> */}
         <LazyLoadImage
-          placeholderSrc={thumbUrl}
+          style={{
+            maxHeight: "100%",
+            maxWidth: "100%",
+            objectFit: "contain",
+          }}
           effect="blur"
-          className="modal-image full"
           alt={name}
           src={imageUrl}
-          // afterLoad={() => setIsLoaded(true)}
         />
       </div>
       <div className="modal-footer">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
@@ -9,6 +9,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import "./modal.styles.scss";
 
 const Modal = ({ show, close, addItem, item }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const { name, price, imageUrl, forSale } = item;
 
   return (
@@ -26,6 +27,17 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
+        <div className="modal-load-container">
+          <div
+            className="modal-loader"
+            style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
         <LazyLoadImage
           style={{
             maxHeight: "100%",
@@ -35,6 +47,7 @@ const Modal = ({ show, close, addItem, item }) => {
           effect="blur"
           alt={name}
           src={imageUrl}
+          afterLoad={() => setIsLoaded(true)}
         />
       </div>
       <div className="modal-footer">

@@ -54,7 +54,7 @@ app.post("/admin", (req, res) => {
   ) {
     res.status(200).send({ permission: true });
   } else {
-    res.status(401).send({ permission: false });
+    res.send({ permission: false });
   }
 });
 

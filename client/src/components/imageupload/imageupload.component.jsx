@@ -3,7 +3,7 @@ import { storage, firestore } from "../../firebase/firebase.utils.js";
 import imageCompression from "browser-image-compression";
 import firebase from "firebase/app";
 
-import { getDocId } from "./mapdocuments.utils.js";
+import { getDocId } from "../../utils/mapdocuments.utils.js";
 
 import "./imageupload.styles.scss";
 
@@ -164,8 +164,10 @@ const ImageUpload = () => {
     // Form validation
     if (!image) {
       alert("Select image before upload");
+      resetForm();
     } else if (!data.name || !data.category) {
       alert("Fill out form data");
+      resetForm();
     } else {
       handleUpload(data, image, documentID, firebaseUpload);
     }

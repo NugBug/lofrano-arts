@@ -9,3 +9,5 @@ const mapCollectionsToCategory = {
 export const getDocId = (categoryName) => {
   return mapCollectionsToCategory[categoryName];
 };
+
+export default getDocId;

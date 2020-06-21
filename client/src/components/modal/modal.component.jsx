@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
+import CustomButton from "../custom-button/custom-button.component";
 import { addItem } from "../../redux/cart/cart.actions";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { selectIsAdmin } from "../../redux/user/user.selectors";
+import { createStructuredSelector } from "reselect";
+import DeleteItem from "../delete-item/delete-item.coponent";
 
 import "./modal.styles.scss";
 
-const Modal = ({ show, close, addItem, item }) => {
+const Modal = ({ show, close, addItem, item, isAdmin }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { name, price, imageUrl, forSale } = item;
 
@@ -27,11 +30,11 @@ const Modal = ({ show, close, addItem, item }) => {
         </span>
       </div>
       <div className="modal-body" onClick={close}>
-        <div className="modal-load-container">
-          <div
-            className="modal-loader"
-            style={{ visibility: isLoaded ? "hidden" : "visible " }}
-          >
+        <div
+          className="modal-load-container"
+          style={{ visibility: isLoaded ? "hidden" : "visible " }}
+        >
+          <div className="modal-loader">
             <div></div>
             <div></div>
             <div></div>
@@ -52,6 +55,7 @@ const Modal = ({ show, close, addItem, item }) => {
       </div>
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}
+        {isAdmin ? <DeleteItem item={item} /> : null}
         {forSale ? (
           <CustomButton onClick={() => addItem(item)} className="btn-purchase">
             Add To Cart
@@ -66,8 +70,12 @@ const Modal = ({ show, close, addItem, item }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  isAdmin: selectIsAdmin,
+});
+
 const mapDispatchToProps = {
   addItem: (item) => addItem(item),
 };
 
-export default connect(null, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

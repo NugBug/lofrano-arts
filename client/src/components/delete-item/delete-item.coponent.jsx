@@ -6,26 +6,28 @@ import getDocId from "../../utils/mapdocuments.utils.js";
 
 import "./delete-item.styles.scss";
 
-const DeleteItem = (item) => {
+const DeleteItem = ({ item }) => {
   const firebaseDelete = async (item) => {
     try {
-      const documentID = getDocId(item.item.category);
+      //retrieve correct collections document
+      const documentID = getDocId(item.category);
       const docRef = await firestore.collection("collections").doc(documentID);
-      console.log(docRef);
+
+      //delete object from array
       docRef.update({
         items: firebase.firestore.FieldValue.arrayRemove({
-          category: item.item.category,
-          forSale: item.item.forSale,
-          id: item.item.id,
-          imageUrl: item.item.imageUrl,
-          name: item.item.name,
-          originalUrl: item.item.originalUrl,
-          price: item.item.price,
-          thumbUrl: item.item.thumbUrl,
+          category: item.category,
+          forSale: item.forSale,
+          id: item.id,
+          imageUrl: item.imageUrl,
+          name: item.name,
+          originalUrl: item.originalUrl,
+          price: item.price,
+          thumbUrl: item.thumbUrl,
         }),
       });
 
-      //reload location to reflect update
+      //refresh page location to reflect db update
       window.location.reload();
     } catch (error) {
       console.log(error);

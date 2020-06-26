@@ -8,10 +8,11 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { selectIsAdmin } from "../../redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import DeleteItem from "../delete-item/delete-item.coponent";
+import { capitalLetter } from "../../utils/capitalLetter.utils";
 
 import "./modal.styles.scss";
 
-const Modal = ({ show, close, addItem, item, isAdmin, capitalLetter }) => {
+const Modal = ({ show, close, addItem, item, isAdmin }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { name, price, imageUrl, forSale } = item;
 

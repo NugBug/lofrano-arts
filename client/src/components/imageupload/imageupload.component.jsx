@@ -22,7 +22,7 @@ const ImageUpload = () => {
     category: null,
   });
 
-  // firebase data upload
+  // firebase new image data upload
   const firebaseUpload = async (
     data,
     displayImage,
@@ -45,7 +45,7 @@ const ImageUpload = () => {
     }
   };
 
-  // firebase storage upload
+  // firebase storage new image upload
   const firestoreUpload = async (reference) => {
     try {
       await reference.on(
@@ -73,63 +73,69 @@ const ImageUpload = () => {
 
   // Compress image and gather data for firebase storage and database upload
   const handleUpload = async (data, image, document, databaseUpload) => {
-    setProgress(1);
-    setUploading(true);
+    try {
+      setProgress(1);
+      setUploading(true);
 
-    // Image compression config
-    const imageOptions = {
-      maxSizeMB: 4.0,
-      useWebWorker: true,
-      mamaxWidthOrHeight: 4080,
-    };
+      // Image compression config
+      const imageOptions = {
+        maxSizeMB: 4.0,
+        useWebWorker: true,
+        mamaxWidthOrHeight: 4080,
+      };
 
-    const thumbnailOptions = {
-      maxSizeMB: 1.0,
-      maxWidthOrHeight: 450,
-      useWebWorker: true,
-    };
+      const thumbnailOptions = {
+        maxSizeMB: 1.0,
+        maxWidthOrHeight: 450,
+        useWebWorker: true,
+      };
 
-    // Compress image and return thumbnail and detailed image for display
-    const compressedFile = await imageCompression(image, imageOptions);
-    const compressThumbnail = await imageCompression(image, thumbnailOptions);
+      // Compress image and return thumbnail and detailed image for display
+      const compressedFile = await imageCompression(image, imageOptions);
+      const compressThumbnail = await imageCompression(image, thumbnailOptions);
 
-    // Create firestore liseners for both image upload tasks
-    const uploadTask1 = storage
-      .ref(`/images/${data.name}_display`)
-      .put(compressedFile);
-    const uploadTask2 = storage
-      .ref(`/images/${data.name}_thumb`)
-      .put(compressThumbnail);
-    const uploadTask3 = storage.ref(`/images/${data.name}_original`).put(image);
+      // Create firestore liseners for all image upload tasks
+      const uploadTask1 = storage
+        .ref(`/images/${data.name}_display`)
+        .put(compressedFile);
+      const uploadTask2 = storage
+        .ref(`/images/${data.name}_thumb`)
+        .put(compressThumbnail);
+      const uploadTask3 = storage
+        .ref(`/images/${data.name}_original`)
+        .put(image);
 
-    // Wait for tasks to finish, retrieve new image URLs and submit data for firestore upload
-    Promise.all([uploadTask1, uploadTask2, uploadTask3])
-      .then(async (tasks) => {
-        let imageUrl = await storage
-          .ref(`images/${data.name}_display`)
-          .getDownloadURL()
-          .then((url) => url);
+      // Wait for tasks to finish, retrieve new image URLs and submit data for firestore upload
+      Promise.all([uploadTask1, uploadTask2, uploadTask3])
+        .then(async (tasks) => {
+          let imageUrl = await storage
+            .ref(`images/${data.name}_display`)
+            .getDownloadURL()
+            .then((url) => url);
 
-        let thumbUrl = await storage
-          .ref(`images/${data.name}_thumb`)
-          .getDownloadURL()
-          .then((url) => url);
+          let thumbUrl = await storage
+            .ref(`images/${data.name}_thumb`)
+            .getDownloadURL()
+            .then((url) => url);
 
-        let originalUrl = await storage
-          .ref(`/images/${data.name}_original`)
-          .getDownloadURL()
-          .then((url) => url);
+          let originalUrl = await storage
+            .ref(`/images/${data.name}_original`)
+            .getDownloadURL()
+            .then((url) => url);
 
-        return { imageUrl, thumbUrl, originalUrl };
-      })
-      .then(({ imageUrl, thumbUrl, originalUrl }) => {
-        databaseUpload(data, imageUrl, thumbUrl, originalUrl, document);
-        setUploading(false);
-      });
+          return { imageUrl, thumbUrl, originalUrl };
+        })
+        .then(({ imageUrl, thumbUrl, originalUrl }) => {
+          databaseUpload(data, imageUrl, thumbUrl, originalUrl, document);
+          setUploading(false);
+        });
 
-    // Upload images to firestore
-    firestoreUpload(uploadTask1);
-    firestoreUpload(uploadTask2);
+      // Upload images to firestore
+      firestoreUpload(uploadTask1);
+      firestoreUpload(uploadTask2);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Handle form submit

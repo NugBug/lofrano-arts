@@ -11,7 +11,7 @@ import DeleteItem from "../delete-item/delete-item.coponent";
 
 import "./modal.styles.scss";
 
-const Modal = ({ show, close, addItem, item, isAdmin }) => {
+const Modal = ({ show, close, addItem, item, isAdmin, capitalLetter }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { name, price, imageUrl, forSale } = item;
 
@@ -24,7 +24,7 @@ const Modal = ({ show, close, addItem, item, isAdmin }) => {
       }}
     >
       <div className="modal-header">
-        <h3>{name}</h3>
+        <h3>{capitalLetter(name)}</h3>
         <span className="close-modal-btn" onClick={close}>
           ×
         </span>

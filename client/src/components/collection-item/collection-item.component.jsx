@@ -25,6 +25,16 @@ const CollectionItem = ({ item, addItem }) => {
     }
   });
 
+  const capitalLetter = (str) => {
+    str = str.split(" ");
+
+    for (let i = 0, x = str.length; i < x; i++) {
+      str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+
+    return str.join(" ");
+  };
+
   return (
     <div className={`${forSale ? "for-sale" : ""} collection-item`}>
       <Modal
@@ -32,6 +42,7 @@ const CollectionItem = ({ item, addItem }) => {
         item={item}
         show={isShowing}
         close={() => setIsShowing(false)}
+        capitalLetter={capitalLetter}
       ></Modal>
       <div
         onClick={() => {
@@ -61,7 +72,7 @@ const CollectionItem = ({ item, addItem }) => {
         </LazyLoad>
       </div>
       <div className="collection-footer">
-        <span className="name">{name}</span>
+        <span className="name">{capitalLetter(name)}</span>
         {!forSale ? (
           <span className="price"></span>
         ) : (

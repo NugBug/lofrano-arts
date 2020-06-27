@@ -95,31 +95,32 @@ const ImageUpload = () => {
       const compressThumbnail = await imageCompression(image, thumbnailOptions);
 
       // Create firestore liseners for all image upload tasks
+      const currentTime = Date.now();
       const uploadTask1 = storage
-        .ref(`/images/${data.name}_${Date.now()}_display`)
+        .ref(`/images/${data.name}_${currentTime}_display`)
         .put(compressedFile);
       const uploadTask2 = storage
-        .ref(`/images/${data.name}_${Date.now()}_thumb`)
+        .ref(`/images/${data.name}_${currentTime}_thumb`)
         .put(compressThumbnail);
       const uploadTask3 = storage
-        .ref(`/images/${data.name}_${Date.now()}_original`)
+        .ref(`/images/${data.name}_${currentTime}_original`)
         .put(image);
 
       // Wait for tasks to finish, retrieve new image URLs and submit data for firestore upload
       Promise.all([uploadTask1, uploadTask2, uploadTask3])
         .then(async (tasks) => {
           let imageUrl = await storage
-            .ref(`images/${data.name}_display`)
+            .ref(`/images/${data.name}_${currentTime}_display`)
             .getDownloadURL()
             .then((url) => url);
 
           let thumbUrl = await storage
-            .ref(`images/${data.name}_thumb`)
+            .ref(`/images/${data.name}_${currentTime}_thumb`)
             .getDownloadURL()
             .then((url) => url);
 
           let originalUrl = await storage
-            .ref(`/images/${data.name}_original`)
+            .ref(`/images/${data.name}_${currentTime}_original`)
             .getDownloadURL()
             .then((url) => url);
 

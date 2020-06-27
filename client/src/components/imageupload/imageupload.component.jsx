@@ -96,13 +96,13 @@ const ImageUpload = () => {
 
       // Create firestore liseners for all image upload tasks
       const uploadTask1 = storage
-        .ref(`/images/${data.name}_display`)
+        .ref(`/images/${data.name}_${Date.now()}_display`)
         .put(compressedFile);
       const uploadTask2 = storage
-        .ref(`/images/${data.name}_thumb`)
+        .ref(`/images/${data.name}_${Date.now()}_thumb`)
         .put(compressThumbnail);
       const uploadTask3 = storage
-        .ref(`/images/${data.name}_original`)
+        .ref(`/images/${data.name}_${Date.now()}_original`)
         .put(image);
 
       // Wait for tasks to finish, retrieve new image URLs and submit data for firestore upload

@@ -23,6 +23,7 @@
       left: 0;
       width: 100%;
       height: 95%;
+      object-fit: cover;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {

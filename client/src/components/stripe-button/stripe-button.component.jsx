@@ -52,7 +52,7 @@ const StripeCheckoutButton = ({ price, clearCart, user }) => {
 };
 
 const mapDispatchToProps = {
-  clearCart: () => clearCart(),
+  clearCart,
 };
 
 const mapStateToProps = createStructuredSelector({

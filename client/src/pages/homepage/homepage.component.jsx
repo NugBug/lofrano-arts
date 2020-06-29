@@ -60,7 +60,7 @@ const HomePage = () => (
         </Fade>
       </div>
     </div>
-    <Fade delay={500} duration={1000}>
+    <Fade duration={1000}>
       <div className="studio-sculpture">
         <div className="button-container">
           <Link className="explore-button" to="/gallery">

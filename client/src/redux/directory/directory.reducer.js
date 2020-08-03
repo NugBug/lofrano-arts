@@ -10,7 +10,7 @@ const INITIAL_STATE = {
     {
       title: "photography",
       imageUrl:
-        "https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-15/e35/14726463_225276121223510_283839399156776960_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=uNZ7FdaArHYAX8KJ_n2&oh=b5864821f0ae6cc3c923583c9bebbddf&oe=5F17F7EA",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FEspresso_1594662951124_display?alt=media&token=918a4998-da93-4554-93cf-353ff748fb56",
       id: 2,
       linkUrl: "/gallery/photography",
     },

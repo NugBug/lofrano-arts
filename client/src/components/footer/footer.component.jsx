@@ -37,6 +37,10 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>Copyright © Lofrano Arts 2020</p>
+        <p>
+          Web Development by
+          <a href="https://www.joshtanguay.me">JoshTanguay.me</a>
+        </p>
       </div>
     </div>
   );

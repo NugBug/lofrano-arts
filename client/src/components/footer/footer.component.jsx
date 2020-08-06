@@ -39,7 +39,9 @@ const Footer = () => {
         <p>Copyright © Lofrano Arts 2020</p>
         <p>
           Web Development by
-          <a href="https://www.joshtanguay.me">JoshTanguay.me</a>
+          <a href="https://www.joshtanguay.me" target="blank">
+            JoshTanguay.me
+          </a>
         </p>
       </div>
     </div>

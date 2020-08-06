@@ -8,8 +8,8 @@ const TermsAndPrivacy = () => {
         <h2>Account and Profile Information</h2>
         <p>
           When you create an account with Lofrano Arts and sign-up you provide
-          us with your name and email address. At no time do we collect
-          information from a third party.
+          us with your name and email address. We do not collect any information
+          about our users from a third party.
         </p>
         <div className="line-space"></div>
         <div className="line-space"></div>
@@ -19,7 +19,7 @@ const TermsAndPrivacy = () => {
         <h2>Billing and Payment Information</h2>
         <p>
           All your payment information is hosted and processed securely by third
-          party payment processor Stripe.com. We don’t store any payment
+          party payment processor Stripe.com. We do not store your payment
           information or credit cards on any of our systems.
         </p>
         <div className="line-space"></div>
@@ -29,10 +29,10 @@ const TermsAndPrivacy = () => {
         <div className="line-space"></div>
         <h2>How do we use the information we collect?</h2>
         <p>
-          Your email and name are used strictly for authentication and to make
-          purchases on LofranoArts.com and to personalize your experience. We
-          may at times send updates to the email address provided. You have the
-          option to opt-out of such updates.
+          Your email and name are used strictly for authentication to access and
+          make purchases on LofranoArts.com as well as to personalize your
+          experience. We may at times send updates to the email address
+          provided. You have the option to opt-out of such updates.
         </p>
         <div className="line-space"></div>
         <div className="line-space"></div>
@@ -41,8 +41,8 @@ const TermsAndPrivacy = () => {
         <div className="line-space"></div>
         <h2>How do I delete my account?</h2>
         <p>
-          Please contact Lofrano Arts directly via the contact link to have your
-          account deleted.
+          Please contact Lofrano Arts directly via the contact link on this
+          website to request deletion of your account.
         </p>
         <div className="line-space"></div>
         <div className="line-space"></div>

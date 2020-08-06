@@ -146,6 +146,61 @@ const TermsAndPrivacy = () => {
           will do our best to determine and correct the problem promptly. Be
           certain to select Privacy Policy in the Subject line.
         </p>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
+        <hr></hr>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
+        <h2>Terms of Use</h2>
+        <p>
+          User shall use LofranoArts.com for lawful purposes only. User shall
+          not post or transmit through LofranoArts.com any material which
+          violates or infringes in any way upon the rights of others, which is
+          unlawful, threatening, abusive, defamatory, invasive of privacy or
+          publicity rights, vulgar, obscene, profane or otherwise objectionable,
+          which encourages conduct that would constitute a criminal offense,
+          give rise to civil liability or otherwise violate any law, or which,
+          without Lofrano Arts' express prior approval, contains advertising or
+          any solicitation with respect to products or services. Any conduct by
+          a User that in Lofrano Arts' discretion restricts or inhibits any
+          other User from using or enjoying LofranoArts.com will not be
+          permitted. User shall not use LofranoArts.com to advertise or perform
+          any commercial solicitation, including, but not limited to, the
+          solicitation of users to become subscribers of other on-line
+          information services competitive with Lofrano Arts.
+          <br></br>
+          <br></br>
+          LofranoArts.com contains copyrighted material, trademarks and other
+          proprietary information, including, but not limited to, text,
+          software, photos, video, graphics, music and sound, and the entire
+          contents of LofranoArts.com are copyrighted as a collective work under
+          the United States copyright laws. Lofrano Arts owns a copyright in the
+          selection, coordination, arrangement and enhancement of such content,
+          as well as in the content original to it. User may not modify,
+          publish, transmit, participate in the transfer or sale, create
+          derivative works, or in any way exploit, any of the content, in whole
+          or in part. User may download copyrighted material for User's personal
+          use only. Except as otherwise expressly permitted under copyright law,
+          no copying, redistribution, retransmission, publication or commercial
+          exploitation of downloaded material will be permitted without the
+          express permission of Lofrano Arts and the copyright owner. In the
+          event of any permitted copying, redistribution or publication of
+          copyrighted material, no changes in or deletion of author attribution,
+          trademark legend or copyright notice shall be made. User acknowledges
+          that it does not acquire any ownership rights by downloading
+          copyrighted material.
+        </p>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
+        <hr></hr>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
+        <h2>Copyright Notice</h2>
+        <p>
+          LofranoArts.com and its logos are trademarks of Lofrano Arts. All
+          rights reserved. All other trademarks appearing on Lofrano Arts are
+          the property of their respective owners
+        </p>
       </div>
     </div>
   );

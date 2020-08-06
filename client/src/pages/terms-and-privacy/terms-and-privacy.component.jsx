@@ -5,6 +5,21 @@ const TermsAndPrivacy = () => {
   return (
     <div className="privacy-statement">
       <div className="privacy-statement-text">
+        <h2>Creator Comment</h2>
+        <p>
+          Lofranot Arts is developed, operated and maintained by two people. We
+          have no interest in ever abusing or selling your personal data and
+          ensure to maintain a top level user experience as well as to always
+          secure your data. Our goal is to provide a space to share the work of
+          James Lofrano and allow you an opportunity to explore these wonderful
+          creations and interact with the artist. We consider it a privilege to
+          be able to interact with users this way. Thank you for visiting.
+        </p>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
+        <hr></hr>
+        <div className="line-space"></div>
+        <div className="line-space"></div>
         <h2>Account and Profile Information</h2>
         <p>
           When you create an account with Lofrano Arts and sign-up, you provide

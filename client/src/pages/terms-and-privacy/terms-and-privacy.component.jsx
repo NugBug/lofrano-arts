@@ -12,8 +12,8 @@ const TermsAndPrivacy = () => {
           ensure to maintain a top level user experience as well as to always
           secure your data. Our goal is to provide a space to share the work of
           James Lofrano and allow you an opportunity to explore these wonderful
-          creations and interact with the artist. We consider it a privilege to
-          be able to interact with users this way. Thank you for visiting.
+          creations. We consider it a privilege to be able to interact with
+          users this way. Thank you for visiting.
         </p>
         <div className="line-space"></div>
         <div className="line-space"></div>

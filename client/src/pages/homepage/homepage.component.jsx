@@ -37,11 +37,13 @@ const HomePage = () => (
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>
-            When I see something that resonates with me I feel that I am
-            connecting with that flow. I have the need to respond, to interact
-            with it and It is that energy that motivates my artwork. Be it my
-            sculpture in various mediums, drawings or digital works, it all
-            begins from the same spark.
+            When I see something that resonates with me, I have a sensation that
+            I am connecting with that flow. I have the need to respond, to
+            interact with it in some way. It is that energy that inspires and
+            motivates me to create my work. Be it my sculpture in various
+            mediums, drawings or digital works, it all begins from the same
+            spark. In my mind I see and experience the creation of the artwork
+            as this energy directs and creates it.
           </p>
           <div className="line-space"></div>
           <div className="line-space"></div>
@@ -55,7 +57,7 @@ const HomePage = () => (
             brings to me. I see and work unfiltered, listening and responding as
             I work, a direct encounter. Each cut in the wood, mark or line on a
             drawing brings another opportunity to respond, to connect, in that
-            present moment. I see it as a stimulating conversation.
+            present moment, open to the flow. It is a stimulating conversation.
           </p>
         </Fade>
       </div>

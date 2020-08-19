@@ -24,14 +24,15 @@ const AboutPage = () => (
           <p>
             I made my living working in our family business and we raised our
             children in the city. Once leaving the school environment I
-            continued making art for my own pleasure and to fulfill my need to
-            create. I create my art and follow the flow of inspiration whenever
-            and wherever it took me.
+            continued making art for my own pleasure and to fulfill my creative
+            needs. I create my art and follow the flow of inspiration whenever
+            and wherever it takes me.
           </p>
           <p>
             My work studio is in my home where I find it very convenient to work
-            at any time the creative urges arise. I work in a small studio with
-            an outdoor deck which is in the back of my garden.
+            at any time the creative urges arise. I work in a small studio and
+            outdoor workspace which is in the back of my garden, my other
+            passion.
           </p>
         </div>
       </Fade>

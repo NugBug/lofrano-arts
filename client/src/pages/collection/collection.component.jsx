@@ -43,11 +43,6 @@ const CollectionPage = ({ collection }) => {
             </div>
           ) : (
             <div>
-              <div className="items">
-                {collection.items.map((item) => (
-                  <CollectionItem key={item.id} item={item} />
-                ))}
-              </div>
               <div className="placeholder-container">
                 <h2>
                   Musings are what I call things or images that connect to me.
@@ -57,7 +52,11 @@ const CollectionPage = ({ collection }) => {
                   anything. The following are some things that have spoken to
                   me…. some inspiring me in the creation of my artworks.
                 </h2>
-                <h2 className="collection-placeholder">Check back soon</h2>
+              </div>
+              <div className="items">
+                {collection.items.map((item) => (
+                  <CollectionItem key={item.id} item={item} />
+                ))}
               </div>
             </div>
           )}

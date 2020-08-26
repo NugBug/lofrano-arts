@@ -16,9 +16,11 @@ const HomePage = () => (
     </Helmet>
     <Fade delay={500} duration={1000}>
       <div className="studio-art">
-        <div className="hero">
-          <h1 className="hero-text">Lofrano Arts</h1>
-        </div>
+        <Fade top delay={500} duration={2000}>
+          <div className="hero">
+            <h1 className="hero-text">Lofrano Arts</h1>
+          </div>
+        </Fade>
         <div id="offset-hero"></div>
       </div>
     </Fade>

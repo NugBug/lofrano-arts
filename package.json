@@ -23,6 +23,7 @@
     "express-sslify": "^1.2.0",
     "node-mailjet": "^3.3.1",
     "nodemailer": "^6.4.10",
+    "react-image-and-background-image-fade": "^1.0.4",
     "stripe": "6.28.0"
   },
   "devDependencies": {

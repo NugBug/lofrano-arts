@@ -3,6 +3,8 @@ const INITIAL_STATE = {
     {
       title: "sculptures",
       imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FNegative%20Cubes_original?alt=media&token=6135c2ee-fefd-4a46-a6ab-5c71fb2f2d50",
+      thumbUrl:
         "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FNegative%20Cubes_thumb?alt=media&token=d9bd4ce6-4f24-4bb3-827f-c86ca47163a1",
       id: 1,
       linkUrl: "gallery/sculptures",
@@ -10,7 +12,9 @@ const INITIAL_STATE = {
     {
       title: "photography",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FEspresso_1594662951124_display?alt=media&token=918a4998-da93-4554-93cf-353ff748fb56",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FEspresso_1594662951124_original?alt=media&token=dafc90a3-4d06-47ff-8265-1058f4b25582",
+      thumbUrl:
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FEspresso_1594662951124_thumb?alt=media&token=cd3717a0-a9dc-4ce8-abe2-e72c2844a306",
       id: 2,
       linkUrl: "/gallery/photography",
     },
@@ -24,7 +28,9 @@ const INITIAL_STATE = {
     {
       title: "drawings",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute_thumb?alt=media&token=5a4be8b3-4f30-46c7-8146-3b53c2cc671f",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute%201_1593286233553_original?alt=media&token=6385f5f0-f13c-41bc-a319-2faad58362ae",
+      thumbUrl:
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FMorning%20Commute%201_1593286233553_thumb?alt=media&token=da40f27e-1886-42eb-8aee-93fdc26a0ac5",
       size: "large",
       id: 4,
       linkUrl: "/gallery/drawings",
@@ -32,7 +38,9 @@ const INITIAL_STATE = {
     {
       title: "digital art",
       imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FCable%20Car_display?alt=media&token=da2fbb3d-5543-49ee-8a43-07698fb45e76",
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FStreet%20Car_1593286530167_original?alt=media&token=6396f41e-d1b8-4715-9585-3481c93c0528",
+      thumbUrl:
+        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FStreet%20Car_1593286530167_thumb?alt=media&token=5c84bf49-f1f6-4263-b326-f30206a369fb",
       size: "large",
       id: 5,
       linkUrl: "/gallery/digital%20art",

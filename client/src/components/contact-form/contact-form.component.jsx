@@ -25,6 +25,11 @@ const Contact = ({ user }) => {
   const formSubmit = (e) => {
     e.preventDefault();
 
+    if (!topic) {
+      alert("Please select the subject of your message.");
+      return;
+    }
+
     setButtonText("...Sending");
 
     let data = {
@@ -59,7 +64,7 @@ const Contact = ({ user }) => {
       <form className="contact-form" onSubmit={(e) => formSubmit(e)}>
         <div>
           <label className="form-input-label" htmlFor="category">
-            Subject
+            Select Subject of Your Message
           </label>
           <select
             id="dropdown"
@@ -67,12 +72,11 @@ const Contact = ({ user }) => {
             className="form-input"
             onChange={(e) => setTopic(e.target.value)}
           >
-            <option defaultValue>Select Category</option>
+            <option value="General Question">General Question</option>
             <option value="Inquire About Art Piece">
               Inquire About Art Piece
             </option>
             <option value="Delete Account">Delete Account</option>
-            <option value="General Question">General Question</option>
             <option value="Privacy Policy">Privacy Policy</option>
             <option value="Other">Other</option>
           </select>

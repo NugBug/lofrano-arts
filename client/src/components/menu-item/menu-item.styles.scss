@@ -1,7 +1,7 @@
 .menu-item {
   min-width: 30%;
-  height: 300px;
-  flex: 1 1 auto;
+  height: 375px;
+  flex-basis: calc(50% - 20px);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -27,16 +27,16 @@ const INITIAL_STATE = {
         "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FEspresso_1594662951124_display?alt=media&token=918a4998-da93-4554-93cf-353ff748fb56",
       id: 2,
       linkUrl: "/gallery/photography",
-      size: "large",
+      // size: "large",
     },
-    {
-      title: "musings",
-      imageUrl:
-        "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FGlass_1598210739542_display?alt=media&token=a564b098-b1df-4e80-b3d8-51ef92782ebd",
-      id: 3,
-      linkUrl: "/gallery/musings",
-      size: "large",
-    },
+    // {
+    //   title: "musings",
+    //   imageUrl:
+    //     "https://firebasestorage.googleapis.com/v0/b/lofrano-arts.appspot.com/o/images%2FGlass_1598210739542_display?alt=media&token=a564b098-b1df-4e80-b3d8-51ef92782ebd",
+    //   id: 3,
+    //   linkUrl: "/gallery/musings",
+    //   size: "large",
+    // },
   ],
 };
 

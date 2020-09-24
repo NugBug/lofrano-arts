@@ -14,9 +14,9 @@ const HomePage = () => (
         content="A universal flow of energy and creativity that connects all of us."
       />
     </Helmet>
-    <Fade delay={500} duration={1000}>
+    <Fade delay={600} duration={1000}>
       <div className="studio-art">
-        <Fade top delay={500} duration={2000}>
+        <Fade top delay={600} duration={2000}>
           <div className="hero">
             <h1 className="hero-text">Lofrano Arts</h1>
           </div>

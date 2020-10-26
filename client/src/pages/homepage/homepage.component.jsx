@@ -39,13 +39,13 @@ const HomePage = () => (
           <div className="line-space"></div>
           <div className="line-space"></div>
           <p>
-            When I see something that resonates with me, I have a sensation that
-            I am connecting with that flow. I have the need to respond, to
-            interact with it in some way. It is that energy that inspires and
-            motivates me to create my work. Be it my sculpture in various
-            mediums, drawings or digital works, it all begins from the same
-            spark. In my mind I see and experience the creation of the artwork
-            as this energy directs and creates it.
+            Regularly I see things that resonate with me, as if invoking me. I
+            have a sensation that I am connecting with that flow. I feel the
+            need to respond, to interact with it in some way. It is that energy
+            that inspires and motivates me to create my work. Be it my sculpture
+            in various mediums, drawings or digital works, it all begins from
+            the same spark. In my mind I see and experience the creation of the
+            artwork as this energy directs and assists in creating it.
           </p>
           <div className="line-space"></div>
           <div className="line-space"></div>
@@ -60,6 +60,17 @@ const HomePage = () => (
             I work, a direct encounter. Each cut in the wood, mark or line on a
             drawing brings another opportunity to respond, to connect, in that
             present moment, open to the flow. It is a stimulating conversation.
+          </p>
+          <div className="line-space"></div>
+          <div className="line-space"></div>
+          <hr></hr>
+        </Fade>
+        <Fade duration={2000}>
+          <div className="line-space"></div>
+          <div className="line-space"></div>
+          <p>
+            Ultimately, the work gives the viewer the opportunity to enter into
+            the dialog, to engage if it speaks to them.
           </p>
         </Fade>
       </div>

@@ -38,7 +38,11 @@ const CollectionPage = ({ collection }) => {
           ) : collection.title !== "musings" ? (
             <div className="items">
               {collection.items.map((item) => (
-                <CollectionItem key={item.id} item={item} />
+                <CollectionItem
+                  key={item.id}
+                  item={item}
+                  collection={collection}
+                />
               ))}
             </div>
           ) : (
@@ -61,8 +65,9 @@ const CollectionPage = ({ collection }) => {
             </div>
           )}
           <div className="back-button">
-            <Link className="back-arrow" to="/gallery">
-              &#10094;&nbsp;Back
+            <div className="arrow bounce"></div>
+            <Link className="back" to="/gallery">
+              Back
             </Link>
           </div>
         </div>

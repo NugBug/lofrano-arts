@@ -8,11 +8,12 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { selectIsAdmin } from "../../redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import DeleteItem from "../delete-item/delete-item.coponent";
+import AddItemPic from "../add-item/add-item.component";
 import { capitalLetter } from "../../utils/capitalLetter.utils";
 
 import "./modal.styles.scss";
 
-const Modal = ({ show, close, addItem, item, isAdmin }) => {
+const Modal = ({ show, close, addItem, item, isAdmin, collection }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { name, price, imageUrl, forSale } = item;
 
@@ -57,6 +58,7 @@ const Modal = ({ show, close, addItem, item, isAdmin }) => {
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}
         {isAdmin ? <DeleteItem item={item} /> : null}
+        {/* {isAdmin ? <AddItemPic item={item} collection={collection} /> : null} */}
         {forSale ? (
           <CustomButton onClick={() => addItem(item)} className="btn-purchase">
             Add To Cart

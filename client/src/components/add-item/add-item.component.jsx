@@ -33,15 +33,12 @@ const AddItemPic = ({ item, setUploading, setProgress }) => {
     updateFirebase(image, item);
   };
 
-  // Event listener callback
-  const handleButton = (e) => handleButtonAndUpload(e, item);
-
   return (
     <div>
       <input
         type="file"
         accept="image/*"
-        onChange={handleButton}
+        onChange={(e) => handleButtonAndUpload(e, item)}
         ref={imageUploader}
         multiple={false}
         style={{ display: "none" }}

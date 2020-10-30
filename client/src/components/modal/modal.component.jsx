@@ -58,7 +58,6 @@ const Modal = ({ show, close, addItem, item, isAdmin, collection }) => {
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}
         {isAdmin ? <DeleteItem item={item} /> : null}
-        {/* {isAdmin ? <AddItemPic item={item} collection={collection} /> : null} */}
         {forSale ? (
           <CustomButton onClick={() => addItem(item)} className="btn-purchase">
             Add To Cart

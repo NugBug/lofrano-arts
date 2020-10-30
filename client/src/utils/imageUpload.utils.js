@@ -2,6 +2,68 @@ import { storage, firestore } from "../firebase/firebase.utils.js";
 import imageCompression from "browser-image-compression";
 import firebase from "firebase/app";
 
+// udpate firebase with carousel image
+export const firebaseUpdate = async (
+  item,
+  displayImage,
+  thumbImage,
+  originalImage,
+  document
+) => {
+  const docRef = await firestore.collection("collections").doc(document);
+  let artItem = {};
+
+  //delete object from array
+  if (item.carousel && item.carousel.length > 0) {
+    docRef.update({
+      items: firebase.firestore.FieldValue.arrayRemove({
+        carousel: item.carousel,
+        category: item.category,
+        forSale: item.forSale,
+        id: item.id,
+        imageUrl: item.imageUrl,
+        name: item.name,
+        originalUrl: item.originalUrl,
+        price: item.price,
+        thumbUrl: item.thumbUrl,
+      }),
+    });
+
+    artItem = {
+      ...item,
+      carousel: [...item.carousel, { displayImage, thumbImage }],
+    };
+  } else {
+    docRef.update({
+      items: firebase.firestore.FieldValue.arrayRemove({
+        category: item.category,
+        forSale: item.forSale,
+        id: item.id,
+        imageUrl: item.imageUrl,
+        name: item.name,
+        originalUrl: item.originalUrl,
+        price: item.price,
+        thumbUrl: item.thumbUrl,
+      }),
+    });
+
+    artItem = {
+      ...item,
+      carousel: [{ displayImage, thumbImage }],
+    };
+  }
+
+  //update object
+  await docRef.update({
+    items: firebase.firestore.FieldValue.arrayUnion({
+      ...artItem,
+    }),
+  });
+
+  //refresh page location to reflect db update
+  window.location.reload();
+};
+
 // firebase new image data upload
 export const firebaseUpload = async (
   data,

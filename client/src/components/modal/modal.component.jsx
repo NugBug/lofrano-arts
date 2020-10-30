@@ -13,8 +13,10 @@ import { capitalLetter } from "../../utils/capitalLetter.utils";
 
 import "./modal.styles.scss";
 
-const Modal = ({ show, close, addItem, item, isAdmin, collection }) => {
+const Modal = ({ show, close, addItem, item, isAdmin }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { name, price, imageUrl, forSale } = item;
 
   return (
@@ -31,34 +33,49 @@ const Modal = ({ show, close, addItem, item, isAdmin, collection }) => {
           ×
         </span>
       </div>
-      <div className="modal-body" onClick={close}>
-        <div
-          className="modal-load-container"
-          style={{ visibility: isLoaded ? "hidden" : "visible " }}
-        >
-          <div className="modal-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+      {uploading ? (
+        <div className="modal-body">
+          <div className="uploading">
+            Upload Progress:&nbsp;&nbsp;&nbsp;
+            <progress value={progress} max="100" />
           </div>
         </div>
-        <LazyLoadImage
-          style={{
-            maxHeight: "100%",
-            maxWidth: "100%",
-            objectFit: "contain",
-          }}
-          effect="blur"
-          alt={name}
-          src={imageUrl}
-          afterLoad={() => setIsLoaded(true)}
-        />
-      </div>
+      ) : (
+        <div className="modal-body" onClick={close}>
+          <div
+            className="modal-load-container"
+            style={{ visibility: isLoaded ? "hidden" : "visible " }}
+          >
+            <div className="modal-loader">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <LazyLoadImage
+            style={{
+              maxHeight: "100%",
+              maxWidth: "100%",
+              objectFit: "contain",
+            }}
+            effect="blur"
+            alt={name}
+            src={imageUrl}
+            afterLoad={() => setIsLoaded(true)}
+          />
+        </div>
+      )}
       <div className="modal-footer">
         {forSale ? <h3>Price: {price}</h3> : <h3>Price: --</h3>}
         {isAdmin ? <DeleteItem item={item} /> : null}
-        {isAdmin ? <AddItemPic item={item} collection={collection} /> : null}
+        {isAdmin ? (
+          <AddItemPic
+            item={item}
+            setUploading={setUploading}
+            setProgress={setProgress}
+          />
+        ) : null}
         {forSale ? (
           <CustomButton onClick={() => addItem(item)} className="btn-purchase">
             Add To Cart

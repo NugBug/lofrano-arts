@@ -1,62 +1,54 @@
-import React from "react";
-import firebase from "firebase/app";
-import { firestore } from "../../firebase/firebase.utils.js";
-import { firebaseUpload, handleUpload } from "../../utils/imageUpload.utils.js";
+import React, { useRef } from "react";
+import { firebaseUpdate, handleUpload } from "../../utils/imageUpload.utils.js";
 import CustomButton from "../custom-button/custom-button.component";
 import getDocId from "../../utils/mapdocuments.utils.js";
 
 import "./add-item.styles.scss";
 
-const AddItemPic = ({ item, collection }) => {
-  const firebaseAdd = async (item) => {
+const AddItemPic = ({ item, setUploading, setProgress }) => {
+  const imageUploader = useRef(null);
+
+  const updateFirebase = async (image, item) => {
     try {
       //retrieve correct collections document
       const documentID = getDocId(item.category);
-      const docRef = await firestore.collection("collections").doc(documentID);
-      const artItem = { ...item, carousel: [] };
-
-      //delete object from array
-      docRef.update({
-        items: firebase.firestore.FieldValue.arrayRemove({
-          category: item.category,
-          forSale: item.forSale,
-          id: item.id,
-          imageUrl: item.imageUrl,
-          name: item.name,
-          originalUrl: item.originalUrl,
-          price: item.price,
-          thumbUrl: item.thumbUrl,
-        }),
-      });
-
-      //update object
-      docRef.update({
-        items: firebase.firestore.FieldValue.arrayUnion({
-          ...artItem,
-        }),
-      });
 
       //upload new image
-
-      //refresh page location to reflect db update
-      window.location.reload();
+      handleUpload(
+        item,
+        image,
+        documentID,
+        firebaseUpdate,
+        setProgress,
+        setUploading
+      );
     } catch (error) {
       console.log(error);
     }
   };
 
-  const test = () => {
-    console.log("click");
+  // Add carousel image button handler
+  const handleButtonAndUpload = async (e, item) => {
+    const image = e.target.files[0];
+    updateFirebase(image, item);
   };
+
+  // Event listener callback
+  const handleButton = (e) => handleButtonAndUpload(e, item);
 
   return (
     <div>
-      <input type="file" accept="image/*" multiple="false" />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleButton}
+        ref={imageUploader}
+        multiple={false}
+        style={{ display: "none" }}
+      />
       <CustomButton
         className="add-button"
-        onClick={() => {
-          test();
-        }}
+        onClick={() => imageUploader.current.click()}
       >
         Add Pic
       </CustomButton>

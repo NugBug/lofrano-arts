@@ -14,18 +14,34 @@ const DeleteItem = ({ item }) => {
       const docRef = await firestore.collection("collections").doc(documentID);
 
       //delete object from array
-      docRef.update({
-        items: firebase.firestore.FieldValue.arrayRemove({
-          category: item.category,
-          forSale: item.forSale,
-          id: item.id,
-          imageUrl: item.imageUrl,
-          name: item.name,
-          originalUrl: item.originalUrl,
-          price: item.price,
-          thumbUrl: item.thumbUrl,
-        }),
-      });
+      if (item.carousel && item.carousel.length > 0) {
+        docRef.update({
+          items: firebase.firestore.FieldValue.arrayRemove({
+            carousel: item.carousel,
+            category: item.category,
+            forSale: item.forSale,
+            id: item.id,
+            imageUrl: item.imageUrl,
+            name: item.name,
+            originalUrl: item.originalUrl,
+            price: item.price,
+            thumbUrl: item.thumbUrl,
+          }),
+        });
+      } else {
+        docRef.update({
+          items: firebase.firestore.FieldValue.arrayRemove({
+            category: item.category,
+            forSale: item.forSale,
+            id: item.id,
+            imageUrl: item.imageUrl,
+            name: item.name,
+            originalUrl: item.originalUrl,
+            price: item.price,
+            thumbUrl: item.thumbUrl,
+          }),
+        });
+      }
 
       //refresh page location to reflect db update
       window.location.reload();

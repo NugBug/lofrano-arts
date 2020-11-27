@@ -49,10 +49,10 @@ const CheckoutPage = ({ cartItems, total }) => (
         No credit card information is collected or saved. Payments via Stripe
         are being tested and in development at the moment.
       </h3>
-      <h3>
+      {/* <h3>
         *Please use the following credit card for testing payment functionality*
       </h3>
-      <h3>4242-4242-4242-4242 -- Exp: 01/21 -- CW: 123</h3>
+      <h3>4242-4242-4242-4242 -- Exp: 01/21 -- CW: 123</h3> */}
     </div>
   </div>
 );
